@@ -37,14 +37,21 @@
             console.error(error);
         }
     });
+    
+    const backToCareer = () => {
+        emit('back-to-career');
+        console.log("dasdsadas");
+    }
+
+    const emit = defineEmits(["back-to-career"])
 </script>
 
 <template>
     <Header></Header>
         <div class="single-header">
+            <button @click="backToCareer">Back to Career</button>
             <h2>{{ career.careerName }}</h2>
             <div class="career-description" v-html="career.careerDescription">
-            
             </div>
             <div class="footer-section" id="apply-now">
                 <button>Apply Now</button>
@@ -60,6 +67,10 @@
         padding: 5rem;
         margin-bottom: 5rem;
         
+    }
+
+    .single-header span {
+        cursor: pointer;
     }
 
     .single-header h2 {

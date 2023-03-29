@@ -40,8 +40,9 @@
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="section-headline text-center">
-              <h2 @click="backToAlbum" style="cursor: pointer;">{{ title }}</h2>
+              <h2>{{ title }}</h2>
             </div>
+            <button class="back-button" @click="backToAlbum"><span>-Back to Gallery</span></button>
           </div>
         </div>
         <div class="row awesome-project-content portfolio-container">
@@ -66,3 +67,23 @@
       </div>
     </div><!-- End Portfolio Section -->
 </template>
+
+
+<style>
+  .back-button {
+    border: none;
+    background: #3ec1d5;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease-in-out; 
+    transform: translateY(0)
+  }
+
+  .back-button:hover {
+    transform: translateX(-1rem);
+  }
+</style>

@@ -1,7 +1,6 @@
 <script setup lang="ts">
     import { defineProps, onMounted, reactive, computed, watch } from "vue";
     import { useRouter } from "vue-router";
-
     const router = useRouter();
     const state = reactive({
         currentPage: 1
@@ -59,6 +58,11 @@
         }
        
     });
+
+    const backToCareer = () => {
+        router.push({ name: 'CareerList '});
+    }
+
 </script>
 
 <template>
@@ -68,7 +72,7 @@
         </div>
         <div class="container">
             <div class="row gx-5 gy-3">
-                <div class="career-item col-lg-6" v-for="career in paginatedList" :key="career.careerId"> 
+                <div class="career-item col-lg-6" v-for="career in paginatedList" @back-to-career="backToCareer" :key="career.careerId"> 
                     <router-link :to="{ name: 'CareerDetails', params: { careerId: career.careerId }}">
                         <h2>{{ career.careerName }}</h2>
                     </router-link>

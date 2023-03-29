@@ -51,6 +51,7 @@
       console.log("ahahah")
       showGrid.value = false
     }
+
 </script>
 
 <template>
@@ -96,7 +97,4 @@
         color: #fff;
         list-style: none;
     }
-
-
-
 </style>
