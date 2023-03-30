@@ -5,6 +5,7 @@
     const router = useRouter();
     const state = reactive({
         currentPage: 1,
+        searchTerm: ""
     });
 
 
@@ -21,10 +22,14 @@
     const paginatedList = computed(() => {
         const start = (state.currentPage - 1) * 4;
         const end = start + 4;
-        return props.listOfCareer.slice(start,end);
+        // filter based on search term
+        return props.listOfCareer.filter(career => {
+            return career.careerName.toLowerCase().includes(state.searchTerm.toLowerCase());
+        }).slice(start,end);
     });
 
-    function prevPage() {
+
+   /*  function prevPage() {
         if (state.currentPage > 1) {
             state.currentPage--;
         }
@@ -34,7 +39,7 @@
         if (state.currentPage < Math.ceil(props.listOfCareer.length / 3)) {
             state.currentPage++;
         }
-    }
+    } */
 
     function onCurrentChange(currentPage: number) {
         state.currentPage = currentPage;
@@ -64,7 +69,29 @@
 <template>
     <div class="career-header">
         <div class="section-headline text-center">
-             <h2>Job Listing</h2>
+            <h2>Job Listing</h2>
+            <div class="row justify-content-center mb-5">
+                <div class="col-12 col-md-10 col-lg-8">
+                    <form class="card card-sm">
+                        <div class="card-body row no-gutters align-items-center">
+                            <div class="col-auto">
+                                <i class="fas fa-search h4 text-body"></i>
+                            </div>
+                            <div class="col">
+                                <input 
+                                    class="form-control form-control-lg form-control-borderless"
+                                    type="search" 
+                                    placeholder="Search job by title"
+                                    v-model="state.searchTerm"
+                                >
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-lg btn-success">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
         <div class="container">
             <div class="row gx-5 gy-3">
@@ -100,8 +127,6 @@
             :total="props.listOfCareer.length"
             :current-page="state.currentPage"
             @current-change="onCurrentChange"
-            @prev-click="prevPage"
-            @next-click="nextPage"
         />
     </div>
 </template>
@@ -110,6 +135,21 @@
      @import 'bootstrap/scss/functions';
      @import 'bootstrap/scss/variables';
      @import 'bootstrap/scss/mixins';
+
+     .form-control-borderless {
+         border: none;
+    }
+
+    .form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+
+    .card {
+        border-radius: 1.3rem;
+    }
+
 
      .el-pager li.is-active {
         background-color: #3EC1D5 !important;

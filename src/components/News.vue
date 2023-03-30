@@ -16,14 +16,6 @@
 
       });
 
-     /*  const selectedDateValue = selectedDate.value; */
-      const selectedDateObj = new Date(selectedDate.value);
-      const formattedDate = selectedDateObj.toLocaleDateString("en-us", {
-        month: "long",
-       /*  day: "numeric", */
-        year: "numeric",
-      });
-
       const formatDate = (dateString: string) => {
         const date = new Date(dateString);
         return date.toLocaleDateString("en-US", {
@@ -34,23 +26,29 @@
         });
       };
 
-
       const filteredNews = computed(() => { 
-          console.log(formattedDate);
-          console.log(getAllData.value)
           if (!selectedDate.value) {
-            return getAllData.value;
+            return paginatedList.value;
           } else {
               const formattedDate = formatDate(selectedDate.value);
-               return getAllData.value.filter((news) => formatDate(news.date) === formattedDate);
+               return paginatedList.value.filter((news) => formatDate(news.date) === formattedDate);
           }
       });
       
       const paginatedList = computed(() => {
-        const start = (state.currentPage -1) * 3;
-        const end = start + 3;
-        return getAllData.value.slice(start,end);
+        if (!selectedDate.value) {
+          const start = (state.currentPage - 1) * 3;
+          const end = start + 3;
+          return getAllData.value.slice(start,end);
+        } else {
+          const filteredData = getAllData.value.filter((news) => {
+            const formattedDate = formatDate(news.date);
+            return formattedDate === formatDate(selectedDate.value);
+          }) 
+          return filteredData;
+        }
       }); 
+
 
       function nextPage () {
         if (state.currentPage < Math.ceil(getAllData.value.length / 3)) {
@@ -90,10 +88,9 @@
           </div>
             <div class="news-wrapper">
               <h3>Top Stories > </h3>
-                <div class="line"></div>
                   <div class="news-content fade-in" v-if="filteredNews.length > 0">
                       <div class="content-title fade-in">
-                        <div v-for="news in paginatedList" :key="news.newsAndEventsId">
+                        <div v-for="news in filteredNews" :key="news.newsAndEventsId">
                           <router-link :to="{ name: 'News Article', params: { newsAndEventsId: news.newsAndEventsId }}">
                             <div class="line"></div>
                                 <div class="fade-in">
@@ -102,7 +99,7 @@
                                 </div> 
                           </router-link>
                             <div class="right-image">
-                              <img :src="image" alt="">
+                              <img :src="'https://localhost:7243' + news.filePath" alt="">
                             </div> 
                         </div>
                       </div>
@@ -113,17 +110,16 @@
             </div>
             
             <el-pagination
-            background
-            :page-size="3"
-            layout="prev, pager, next"
-            class="mt-4"
-            :total="getAllData.length"
-            :current-page="state.currentPage"
-            @current-change="onCurrentChange"
-            @prev-click="prevPage"
-            @next-click="nextPage"
-        />
-
+              background
+              :page-size="3"
+              layout="prev, pager, next"
+              class="mt-4"
+              :total="getAllData.length"
+              :current-page="state.currentPage"
+              @current-change="onCurrentChange"
+              @prev-click="prevPage"
+              @next-click="nextPage"
+           />
         </div>
     </div>
 </template>

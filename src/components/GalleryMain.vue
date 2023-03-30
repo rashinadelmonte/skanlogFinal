@@ -64,7 +64,7 @@
             </div>
           </div>
         </div>
-        <div class="row" v-if="listOfGalleryData.length > 0">
+        <div class="row gy-5" v-if="listOfGalleryData.length > 0">
           <div class="col-md-3 col-sm-3 col-xs-12" v-for="gallery in listOfGalleryData" :key="gallery.galleryId">
             <div class="single-team-member">
               <div class="team-img" @click.prevent="">
