@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import { watch,ref, onMounted, nextTick } from "vue";
+    import { watch, ref } from "vue";
 
     const props = defineProps({
         title: {
@@ -28,7 +28,7 @@
     )
     
 
-    const backToAlbum = () => {
+    function backToAlbum() {
         emit('back-to-album')
     }
     const emit = defineEmits(["back-to-album"])
@@ -42,7 +42,7 @@
             <div class="section-headline text-center">
               <h2>{{ title }}</h2>
             </div>
-            <button class="back-button" @click="backToAlbum"><span>-Back to Gallery</span></button>
+            <button class="back-button" @click="backToAlbum"><span>-Back to Albums</span></button>
           </div>
         </div>
         <div class="row awesome-project-content portfolio-container">

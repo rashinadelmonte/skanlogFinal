@@ -38,7 +38,7 @@
 
     const titleAlbum = ref("")
     const listOfFilesData = ref([])
-    const showGridFunc = (title:any,listOfFiles:any) => {
+    function showGridFunc (title:any,listOfFiles:any) {
         listOfFilesData.value = listOfFiles
         titleAlbum.value = title
         showGrid.value = true
@@ -47,8 +47,7 @@
           loadMainJS()
         })
     }
-    const backToAlbum = () => {
-      console.log("ahahah")
+    function backToAlbum () {
       showGrid.value = false
     }
 
@@ -61,7 +60,7 @@
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="section-headline text-center">
-              <h2>Gallery</h2>
+              <h2>Albums</h2>
             </div>
           </div>
         </div>

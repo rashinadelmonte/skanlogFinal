@@ -16,30 +16,7 @@
       }
     });
 </script>
-<template>
-   <!--  <div id="career" class="personnel-area area-padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="section-headline text-center">
-              <h2>Job Listing</h2>
-            </div>
-          </div>
-        </div>
-      
-        <div class="row career_list">
-          <div class="col-md-4">
-            <div class="career_description">
-              <div></div>
-              <h3></h3>
-              <p></p>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    
+<template>  
     <div class="container">
       <career-list :listOfCareer="listOfCareer"></career-list>
     </div>

@@ -13,6 +13,7 @@
         recipientEmail: ""
     });
 
+
     onMounted(async() => {
         const instance = getCurrentInstance();
         const careerId = instance.proxy.$route.params.careerId;
@@ -38,18 +39,15 @@
         }
     });
     
-    const backToCareer = () => {
-        emit('back-to-career');
-        console.log("dasdsadas");
-    }
-
-    const emit = defineEmits(["back-to-career"])
+   function goBack () {
+        router.go(-1);
+   }
 </script>
 
 <template>
     <Header></Header>
         <div class="single-header">
-            <button @click="backToCareer">Back to Career</button>
+            <button @click="goBack">Back to Career</button>
             <h2>{{ career.careerName }}</h2>
             <div class="career-description" v-html="career.careerDescription">
             </div>

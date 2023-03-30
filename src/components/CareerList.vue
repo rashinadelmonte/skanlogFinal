@@ -1,13 +1,14 @@
 <script setup lang="ts">
     import { defineProps, onMounted, reactive, computed, watch } from "vue";
     import { useRouter } from "vue-router";
+
     const router = useRouter();
     const state = reactive({
-        currentPage: 1
+        currentPage: 1,
     });
 
 
-    //Defining my listOfCareer through props
+    //Defining my listOfCareer from career.vue through props
     const props = defineProps({
         listOfCareer: {
             type : Array,
@@ -45,7 +46,7 @@
 
 
      //For routing direclty to apply now
-     function applyNow(careerId: string) {
+     function applyNow(careerId: any) {
         router.push({ name: 'CareerDetails', params: {careerId: careerId }, query: { scrollToFooter: "applyNow"}})
     }
 
@@ -58,11 +59,6 @@
         }
        
     });
-
-    const backToCareer = () => {
-        router.push({ name: 'CareerList '});
-    }
-
 </script>
 
 <template>
@@ -72,7 +68,7 @@
         </div>
         <div class="container">
             <div class="row gx-5 gy-3">
-                <div class="career-item col-lg-6" v-for="career in paginatedList" @back-to-career="backToCareer" :key="career.careerId"> 
+                <div class="career-item col-lg-6" v-for="career in paginatedList" :key="career.careerId"> 
                     <router-link :to="{ name: 'CareerDetails', params: { careerId: career.careerId }}">
                         <h2>{{ career.careerName }}</h2>
                     </router-link>
@@ -86,12 +82,23 @@
                 </div> 
             </div>
         </div>
-        <el-pagination
+      <!--   <el-pagination
             class="pagination"
             :current-page="state.currentPage"
             :page-size="3"
             :total="props.listOfCareer.length"
             layout="prev, pager, next"
+            @current-change="onCurrentChange"
+            @prev-click="prevPage"
+            @next-click="nextPage"
+        /> -->
+        <el-pagination
+            background
+            :page-size="3"
+            layout="prev, pager, next"
+            class="mt-4"
+            :total="props.listOfCareer.length"
+            :current-page="state.currentPage"
             @current-change="onCurrentChange"
             @prev-click="prevPage"
             @next-click="nextPage"
@@ -105,21 +112,21 @@
      @import 'bootstrap/scss/mixins';
 
      .el-pager li.is-active {
-        background-color: #3EC1D5;
+        background-color: #3EC1D5 !important;
         color: white !important;
         padding: 1rem;
         font-size: 1rem;
      }
 
      .el-pagination button:hover {
-        background-color: #3EC1D5;
+        background-color: #3EC1D5 !important;
         padding: 1rem;
-        color: #ffff !important;
+        color: #fff !important;
      }
 
 
      .el-pager li:hover {
-        background-color: #3EC1D5;
+        background-color: #3EC1D5 !important;
         color: #fff !important;
         padding: 1rem;
      }

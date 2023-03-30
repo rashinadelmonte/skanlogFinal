@@ -5,6 +5,9 @@
 
       const getAllData = ref([]);
       const selectedDate = reactive({ value: ""});
+      const state = reactive({
+          currentPage: 1
+      });
 
       onMounted(async() => {
           const getData = await api.get('/NewsAndEvents');
@@ -42,6 +45,28 @@
                return getAllData.value.filter((news) => formatDate(news.date) === formattedDate);
           }
       });
+      
+      const paginatedList = computed(() => {
+        const start = (state.currentPage -1) * 3;
+        const end = start + 3;
+        return getAllData.value.slice(start,end);
+      }); 
+
+      function nextPage () {
+        if (state.currentPage < Math.ceil(getAllData.value.length / 3)) {
+          state.currentPage++;
+        }
+      }
+
+      function prevPage () {
+        if (state.currentPage > 1) {
+          state.currentPage--;
+        }
+      }
+
+      function onCurrentChange(currentPage: number) {
+        state.currentPage = currentPage;
+      }
 </script>
 
 <template>
@@ -68,7 +93,7 @@
                 <div class="line"></div>
                   <div class="news-content fade-in" v-if="filteredNews.length > 0">
                       <div class="content-title fade-in">
-                        <div v-for="news in filteredNews" :key="news.newsAndEventsId">
+                        <div v-for="news in paginatedList" :key="news.newsAndEventsId">
                           <router-link :to="{ name: 'News Article', params: { newsAndEventsId: news.newsAndEventsId }}">
                             <div class="line"></div>
                                 <div class="fade-in">
@@ -86,6 +111,19 @@
                     <p>No News Found</p>
                   </div>
             </div>
+            
+            <el-pagination
+            background
+            :page-size="3"
+            layout="prev, pager, next"
+            class="mt-4"
+            :total="getAllData.length"
+            :current-page="state.currentPage"
+            @current-change="onCurrentChange"
+            @prev-click="prevPage"
+            @next-click="nextPage"
+        />
+
         </div>
     </div>
 </template>

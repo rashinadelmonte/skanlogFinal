@@ -234,7 +234,7 @@ export function loadMainJS() {
     //   }
     // });
 
-     
+/*      
     let portfolioContainer = select('.portfolio-container');
     if (portfolioContainer) {
       let portfolioIsotope = new Isotope(portfolioContainer, {
@@ -255,7 +255,7 @@ export function loadMainJS() {
           filter: this.getAttribute('data-filter')
         });
       }, true);
-    }
+    } */
     /**
      * Initiate portfolio lightbox 
      */
