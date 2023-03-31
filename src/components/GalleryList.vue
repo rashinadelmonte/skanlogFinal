@@ -19,7 +19,8 @@
             images.value = value.map((item:any) => {
                 return {
                     ...item,
-                    imageList: 'https://localhost:7243/Files/'+item.fileName
+                    imageList: 'https://localhost:7243/Files/'+item.fileName,
+                    fileType: item.fileType
                 }
             })
         },
@@ -46,11 +47,20 @@
           </div>
         </div>
         <div class="row awesome-project-content portfolio-container">
-          <!-- portfolio-item start -->
-          <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-app portfolio-item" v-for="image in images" :key="image.galleryId">
+          <div class="col-md-4 col-sm-4 col-xs-12" v-for="image in images" :key="image.galleryId">
             <div class="single-awesome-project">
               <div class="awesome-img">
-                <a href="#"><img :src="image.imageList" alt="" /></a>
+                <div v-if="image.fileType.startsWith('png')">
+                  <a href="#"><img :src="image.imageList" alt="" /></a>
+                </div>
+                <div v-if="image.fileType.startsWith('mp4')">
+                  <a href="#">
+                    <video controls style="max-width: 100%; height: auto;">
+                      <source :src="image.imageList" type="video/mp4">
+                    </video>
+                  </a>
+                </div>
+                
                 <div class="add-actions text-center">
                   <div class="project-dec">
                     <a class="portfolio-lightbox" data-gallery="myGallery" :href="image.imageList">
@@ -62,10 +72,9 @@
               </div>
             </div>
           </div>
-          <!-- portfolio-item end -->
         </div>
       </div>
-    </div><!-- End Portfolio Section -->
+    </div>
 </template>
 
 

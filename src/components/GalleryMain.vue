@@ -20,15 +20,18 @@
         async (value) => {
             if(value.length > 0) {
                 listOfGalleryData.value = await Promise.all(props.listOfGallery.map(async(item:any) => {
-                    const domain = 'https://localhost:7243/'
-                    const imageResponse = await api.get(`Files/${item.galleryId}`)
-                    const imagePath = await imageResponse.data[0]
-                    console.log(imagePath);
+                  const domain = 'https://localhost:7243/';
+                  const imageResponse = await api.get(`Files/${item.galleryId}`);
+                  const filteredImages = imageResponse.data.filter(image => image.fileType === 'png');
+                  const imagePath = filteredImages.length > 0 ? filteredImages[0] : null;
+                  const isVideo = imagePath && imagePath.fileType === 'mp4';
+                  const featuredImage = isVideo ? null : (imagePath ? domain+'Files/'+imagePath.fileName : null);
                     return {
                         ...item,
-                        featuredImage: domain+'Files/'+imagePath.fileName,
-                        listOfFiles: imageResponse.data
-                    }
+                        featuredImage: featuredImage,
+                        listOfFiles: imageResponse.data,
+                        /* fileType: imagePath ? imagePath.fileType : null */
+                    };
                 }))
                 console.log(listOfGalleryData.value)
             }
@@ -58,14 +61,14 @@
     <div id="team" class="our-team-area area-padding" v-else>
       <div class="container">
         <div class="row">
-          <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="col-md-16 col-sm-12 col-xs-12">
             <div class="section-headline text-center">
               <h2>Albums</h2>
             </div>
           </div>
         </div>
         <div class="row gy-5" v-if="listOfGalleryData.length > 0">
-          <div class="col-md-3 col-sm-3 col-xs-12" v-for="gallery in listOfGalleryData" :key="gallery.galleryId">
+          <div class="col-md-3 col-sm-4 col-xs-12" v-for="gallery in listOfGalleryData" :key="gallery.galleryId">
             <div class="single-team-member">
               <div class="team-img" @click.prevent="">
                 <a href="#" @click.prevent="showGridFunc(gallery.galleryName,gallery.listOfFiles)">
@@ -83,7 +86,6 @@
               </div>
             </div>
           </div>
-          <!-- End column -->
         </div>
       </div>
     </div>
