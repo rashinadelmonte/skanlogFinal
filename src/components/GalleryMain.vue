@@ -61,14 +61,14 @@
     <div id="team" class="our-team-area area-padding" v-else>
       <div class="container">
         <div class="row">
-          <div class="col-md-16 col-sm-12 col-xs-12">
+          <div class="col-md-16 col-sm-12 col-xs-12" data-aos="zoom-in" data-aos-delay="100">
             <div class="section-headline text-center">
               <h2>Albums</h2>
             </div>
           </div>
         </div>
         <div class="row gy-5" v-if="listOfGalleryData.length > 0">
-          <div class="col-md-3 col-sm-4 col-xs-12" v-for="gallery in listOfGalleryData" :key="gallery.galleryId">
+          <div class="col-md-3 col-sm-4 col-xs-12" data-aos="zoom-in" data-aos-delay="200" v-for="gallery in listOfGalleryData" :key="gallery.galleryId">
             <div class="single-team-member">
               <div class="team-img" @click.prevent="">
                 <a href="#" @click.prevent="showGridFunc(gallery.galleryName,gallery.listOfFiles)">
@@ -82,7 +82,7 @@
               </div>
               <div class="team-content text-center">
                 <h4>{{ gallery.galleryName }}</h4>
-                <p>{{ moment(gallery.createdDate).format("ll") }}</p>
+                <p>{{ moment(gallery.galleryDate).format("ll") }}</p>
               </div>
             </div>
           </div>

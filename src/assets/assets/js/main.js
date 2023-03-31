@@ -69,6 +69,8 @@ export function loadMainJS() {
     /**
      * Navbar links active state on scroll
      */
+
+ 
     let navbarlinks = select('#navbar .scrollto', true)
     const navbarlinksActive = () => {
       let position = window.scrollY + 200
@@ -279,6 +281,15 @@ export function loadMainJS() {
         type: 'bullets',
         clickable: true
       }
+    });
+
+    window.addEventListener('load', () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease-in-out",
+        once: true,
+        mirror: false
+      });
     });
   
   })()

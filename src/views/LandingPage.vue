@@ -5,13 +5,27 @@
     import Arrow from "@/components/Arrow.vue"
     import Personnel from "@/components/Personnel.vue"
     import Testimonials from "@/components/Testimonials.vue"
+    import { onMounted } from "vue"
     /* import Subscribe from "@/components/Subscribe.vue"
     import Contact from "@/components/Contact.vue" */
     import Main from "@/layouts/Main.vue"
-    import Video from "@/components/Video.vue"
     /* import Loader from "@/components/Loader.vue" */
-    
+
+    onMounted(() => {
+        window.scrollTo(0, 0);
+    })
+
 </script>
+
+<!-- <script lang="ts">
+    import { defineComponent } from 'vue';
+
+    export default defineComponent({
+        mounted() {
+          
+        }
+    });
+</script> -->
 
 <template>
     <Header></Header>

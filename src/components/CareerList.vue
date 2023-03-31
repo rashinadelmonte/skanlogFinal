@@ -95,7 +95,7 @@
         </div>
         <div class="container">
             <div class="row gx-5 gy-3">
-                <div class="career-item col-lg-6" v-for="career in paginatedList" :key="career.careerId"> 
+                <div class="career-item col-lg-6" data-aos="zoom-in" data-aos-delay="200" v-for="career in paginatedList" :key="career.careerId"> 
                     <router-link :to="{ name: 'CareerDetails', params: { careerId: career.careerId }}">
                         <h2>{{ career.careerName }}</h2>
                     </router-link>

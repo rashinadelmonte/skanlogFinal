@@ -1,6 +1,5 @@
 <script setup lang="ts">
   import { useRoute } from 'vue-router';
-  import Logo from "@/assets/assets/img/CompanyLogo/SkanlogLogoHD.png"
 </script>
 
 <template>

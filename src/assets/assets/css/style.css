@@ -803,6 +803,9 @@ div#preloader {
   transform: scale(1);
 }
 
+
+
+
 .team-member:hover.team-member::before {
   transform: scale(1.2);
 }

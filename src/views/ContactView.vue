@@ -1,7 +1,12 @@
 <script setup lang="ts">
     import Header from "@/components/Header.vue"
     import Main from "@/layouts/Main.vue"
-    import GalleryTest from "@/components/GalleryTest.vue";
+    import { onMounted } from "vue";
+
+    onMounted(() => {
+        window.scrollTo(0, 0);
+    })
+
 </script>
 
 <template>

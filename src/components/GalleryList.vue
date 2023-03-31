@@ -1,5 +1,15 @@
 <script setup lang="ts">
-    import { watch, ref } from "vue";
+    import { watch, ref, onMounted } from "vue";
+   /*  import { loadScript } from "vue-plugin-load-script"
+
+    const loadAllScripts = async() => {
+      await loadScript('/src/assets/assets/vendor/aos/aos.js')
+      console.log("load aos");
+    }
+
+    onMounted(() => {
+      loadAllScripts();
+    }) */
 
     const props = defineProps({
         title: {
@@ -47,7 +57,7 @@
           </div>
         </div>
         <div class="row awesome-project-content portfolio-container">
-          <div class="col-md-4 col-sm-4 col-xs-12" v-for="image in images" :key="image.galleryId">
+          <div class="col-md-4 col-sm-4 col-xs-12" v-for="image in images" :key="image.galleryId" data-aos="zoom-in" data-aos-delay="100">
             <div class="single-awesome-project">
               <div class="awesome-img">
                 <div v-if="image.fileType.startsWith('png')">
@@ -79,6 +89,8 @@
 
 
 <style>
+  
+
   .back-button {
     border: none;
     background: #3ec1d5;
