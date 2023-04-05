@@ -43,6 +43,7 @@
 
     function onCurrentChange(currentPage: number) {
         state.currentPage = currentPage;
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     watch(() => state.currentPage, () => {
@@ -176,9 +177,7 @@
         margin-top: 1rem;
     }
 
-    body {
-        background-color: rgb(249, 249, 250);
-    }
+   
     #career-footer {
         column-gap: 0.5rem;
         display: flex;

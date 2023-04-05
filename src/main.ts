@@ -7,6 +7,7 @@ import VueGoogleMaps from "@fawmi/vue-google-maps";
 import { isEqual as fastDeepEqual } from 'fast-deep-equal';
 
 
+
 const app = createApp(App)
 app.use(router)
 app.use(ElementPlus)

@@ -1,8 +1,32 @@
+<!-- <script lang="ts">
+
+
+export default {
+  name: 'app',
+  components: {
+	vueRecaptcha
+  },
+  data() {
+	return { showRecaptcha: false }
+  },
+  methods: {
+	recaptchaVerified(response) {
+	},
+	recaptchaExpired() {
+	  this.$refs.vueRecaptcha.reset();
+	},
+	recaptchaFailed() {
+	}
+  }
+};
+</script> -->
+
 <script setup lang="ts">
   import { computed, onMounted, ref, reactive, watch } from "vue";
   import api from "@/services/apiService";
-  import VueRecaptcha from 'vue-recaptcha';
+  import vueRecaptcha from 'vue3-recaptcha2';
 
+  
     const map = reactive({
       center: { lat: 0, lng: 0 },
     })
@@ -12,20 +36,6 @@
     const getPhoneNumber = ref({});
     const contactDetails = ref([]);
     const isVerified = ref(false);
-
-    const verifyCallback = (response: any) => {
-    if (response) {
-      isVerified.value = true;
-    }
-  };
-
-  const handleSubmit = (event: any) => {
-    if (!isVerified.value) {
-      event.preventDefault();
-      alert('Please complete the reCAPTCHA verification.');
-    }
-    // proceed with submitting the form data
-  };
 
     onMounted(async() => {
       const responseLocation = await api.get("/Location");
@@ -44,6 +54,48 @@
     })
 
 
+    const verifyCallback = (async(response: any) => {
+        if (response) {
+          isVerified.value = true;
+        }
+    })
+
+    async function handleSubmit (event: any) {
+      event.preventDefault();
+
+        if (!isVerified.value) {
+          alert('Please complete the reCAPTCHA verification.');
+          return;
+        }
+        // Get form data
+        const formData = {
+          name: event.target.name.value,
+          SenderEmail: event.target.SenderEmail.value,
+          subject: event.target.subject.value,
+          RecipientEmail: event.target.RecipientEmail.value,
+          message: event.target.message.value
+        };
+
+        try {
+          
+          // Send form data to server-side endpoint
+          const response = await api.post('/Inquiry', formData);
+          console.log(formData);
+          // Handle response as needed
+          
+        } catch (error) {
+          // Handle error as needed
+          console.error(error);
+        }
+    };
+
+    function recaptchaExpired () {
+      this.$refs.vueRecaptcha.reset();
+    }
+
+    function recaptchaFailed () {
+      
+    }
 </script>
 
 <template>
@@ -115,29 +167,31 @@
             <!-- Start  contact -->
             <div class="col-md-6">
               <div class="form contact-form">
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form"  @submit.prevent="handleSubmit">
+                <form class="php-email-form"  @submit.prevent="handleSubmit">
                   <div class="form-group">
                     <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                   </div>
                   <div class="form-group mt-3">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                    <input type="email" class="form-control" name="SenderEmail" id="email" placeholder="Your Email" required>
                   </div>
                   <div class="form-group mt-3">
                     <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
                   </div>
                   <div class="form-group mt-3">
+                    <input type="text" class="form-control" name="RecipientEmail" id="subject" placeholder="Your Recipient Email" required>
+                  </div>
+                  <div class="form-group mt-3">
                     <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-                  </div>   
-
-                  <VueRecaptcha
-  @verify="verifyCallback"
-  siteKey="6LebcVglAAAAAMGUU5R3heocDw8ocOhCgzXl7Qim"
-  ref="recaptcha"
-  size="normal"
->
-                </VueRecaptcha>
-
-
+                  </div> 
+                  <div class="form-group mt-3 captcha">
+                    <vue-recaptcha
+                      sitekey="6LfQAVglAAAAAPiSs63EPHUOhqVaHE4rok0q1gHs"
+                      @verify="verifyCallback"
+                      @expire="recaptchaExpired"
+                      @fail="recaptchaFailed"
+                      >
+                    </vue-recaptcha>
+                  </div> 
 
                   <div class="my-3">
                     <div class="loading">Loading</div>
@@ -154,4 +208,7 @@
       </div>
     </div><!-- End Contact Section -->
 </template>
+
+
+
 

@@ -6,39 +6,19 @@
     import api from "@/services/apiService";
 
 
-    const listOfGallery = ref([]);
-    const listOfFiles = ref([]);
+    const listOfMedia = ref([]);
     onMounted(async () => {
       try {
         // Fetch the list of galleries
-        const responseGallery = await api.get("/Gallery");
-        listOfGallery.value = responseGallery.data;
-        console.log(listOfGallery.value);
+        const responseGallery = await api.get("/MediaSliderManager");
+        listOfMedia.value = responseGallery.data;
+        console.log(listOfMedia.value);
 
         } catch (error) {
           console.error(error);
         }
     });
 
-    watch(
-      () => listOfGallery,
-
-      async (value) => {
-        if (value.length > 0) {
-          listOfFiles.value = await Promise.all(listOfGallery.value.map(async(item:any) => {
-            const domain = 'https://localhost:7243/';
-            const imageResponse = await api.get(`Files/${item.galleryId}`);
-            const imagePath = imageResponse.data[0];
-              return {
-                ...item,
-                heroImage: domain+imageResponse+'/Files'+imagePath.fileName,
-              };
-          }));
-          console.log(listOfFiles.value);
-        }
-      },
-      { immediate: true }
-    );
 </script>
 <template>
     <!-- ======= hero Section ======= -->
@@ -50,8 +30,8 @@
 
         <div class="carousel-inner" role="listbox">
 
-          <div class="carousel-item active"  v-for="item in listOfFiles" :key="item.galleryId">
-            <img :src="item.heroImage" alt="">
+          <div class="carousel-item active" :style="{ 'background-image': `url(${carouse1})` }">
+           <!--  <img :src="'https://localhost:7243/MediaSliderManager/' + media.fileName" alt=""> -->
             <div class="carousel-container">
               <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">The Best Business Information </h2>
@@ -61,7 +41,7 @@
             </div>
           </div>
 
-          <!-- <div class="carousel-item" :style="{ 'background-image': `url(${carouse2})` }">
+          <div class="carousel-item" :style="{ 'background-image': `url(${carouse2})` }">
             <div class="carousel-container">
               <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">At vero eos et accusamus</h2>
@@ -80,7 +60,7 @@
               </div>
             </div>
           </div>
- -->
+
         </div>
 
         <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">

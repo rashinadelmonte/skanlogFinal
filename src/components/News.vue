@@ -64,6 +64,7 @@
 
       function onCurrentChange(currentPage: number) {
         state.currentPage = currentPage;
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
 </script>
 
