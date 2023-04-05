@@ -4,34 +4,52 @@
     import carouse3 from "@/assets/assets/img/hero-carousel/3.jpg"
     import { watch, ref, onMounted, nextTick } from "vue";
     import api from "@/services/apiService";
+   /*  import { loadMainJS } from "@/assets/assets/js/main.js"; */
 
 
     const listOfMedia = ref([]);
+    const mediaList = ref([]);
+    const isActive = (index: any) => {
+      return index === 0 ? 'active' : '';
+    }
+
     onMounted(async () => {
       try {
         // Fetch the list of galleries
         const responseGallery = await api.get("/MediaSliderManager");
         listOfMedia.value = responseGallery.data;
         console.log(listOfMedia.value);
+        
 
         } catch (error) {
           console.error(error);
         }
     });
 
+    
+
 </script>
 <template>
     <!-- ======= hero Section ======= -->
   <section id="hero">
     <div class="hero-container">
-      <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000"> 
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="16000"> 
 
-        <ol id="hero-carousel-indicators" class="carousel-indicators"></ol>
-
+     <!--    <ol id="hero-carousel-indicators" class="carousel-indicators"></ol> -->
         <div class="carousel-inner" role="listbox">
-
-          <div class="carousel-item active" :style="{ 'background-image': `url(${carouse1})` }">
+          <div 
+          v-for="(media, index) in listOfMedia" :key="index"
+          :class="['carousel-item', isActive(index)]">
            <!--  <img :src="'https://localhost:7243/MediaSliderManager/' + media.fileName" alt=""> -->
+           <div v-if="media.fileType.startsWith('png')">
+             <img :src="'https://localhost:7243/MediaSliderManager/' + media.fileName" alt="">
+           </div>
+           <div v-else-if="media.fileType.startsWith('mp4')">
+             <video autoplay loop muted>
+                <source :src="'https://localhost:7243/MediaSliderManager/' + media.fileName">
+            </video>
+           </div>
+          
             <div class="carousel-container">
               <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">The Best Business Information </h2>
@@ -41,7 +59,7 @@
             </div>
           </div>
 
-          <div class="carousel-item" :style="{ 'background-image': `url(${carouse2})` }">
+        <!--   <div class="carousel-item" :style="{ 'background-image': `url(${carouse2})` }">
             <div class="carousel-container">
               <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">At vero eos et accusamus</h2>
@@ -59,7 +77,7 @@
                 <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
               </div>
             </div>
-          </div>
+          </div> -->
 
         </div>
 

@@ -65,7 +65,7 @@
                 </div>
                 <div v-if="image.fileType.startsWith('mp4')">
                   <a href="#">
-                    <video controls style="max-width: 100%; height: auto;">
+                    <video class="video">
                       <source :src="image.imageList" type="video/mp4">
                     </video>
                   </a>
@@ -106,5 +106,10 @@
 
   .back-button:hover {
     transform: translateX(-1rem);
+  }
+
+  .video {
+    height: 100% !important;
+    max-width: 100% !important;
   }
 </style>
