@@ -1211,19 +1211,19 @@ div#preloader {
   background: rgba(0, 0, 0, 0.02) none repeat scroll 0 0;
 }
 
-.pri_table_list {
+.personnels-contact {
   border: 1px solid #ccc;
   text-align: center;
   transition: all 0.4s ease 0s;
   background: #fff;
-
+  width: 500px;
 }
 
-.pri_table_list h3 span {
+.personnels-contact h3 span {
   font-size: 16px;
 }
 
-.pri_table_list ol li {
+.personnels-contact ol li {
   border-bottom: 1px solid #ccc;
   color: #666;
   padding: 12px 15px;
@@ -1232,30 +1232,30 @@ div#preloader {
   align-items: center;
 }
 
-.pri_table_list li.check {
+.personnels-contact li.check {
   font-weight: 600;
 }
 
-.pri_table_list li.check i {
+.personnels-contact li.check i {
   color: #3EC1D5;
   line-height: 0;
   font-size: 24px;
   margin-right: 5px;
 }
 
-.pri_table_list li.cross {
+.personnels-contact li.cross {
   text-decoration: line-through;
   color: #999;
 }
 
-.pri_table_list li.cross i {
+.personnels-contact li.cross i {
   color: #999;
   line-height: 0;
   font-size: 24px;
   margin-right: 5px;
 }
 
-.pri_table_list button {
+.personnels-contact button {
   background: #444 none repeat scroll 0 0;
   border: 1px solid #444;
   color: #fff;
@@ -1266,7 +1266,7 @@ div#preloader {
   border-radius: 30px;
 }
 
-.pri_table_list>h3 {
+.personnels-contact>h3 {
   color: #333;
   font-size: 24px;
   font-weight: 700;
@@ -1276,13 +1276,13 @@ div#preloader {
   transition: all 0.4s ease 0s;
 }
 
-.pri_table_list ol {
+.personnels-contact ol {
   list-style: outside none none;
   margin: 0;
   padding: 0 0 25px;
 }
 
-.pri_table_list.active {
+.personnels-contact.active {
   transition: all 0.4s ease 0s;
   position: relative;
   overflow: hidden;
@@ -1305,7 +1305,7 @@ div#preloader {
   -moz-transform: rotate(-45deg);
 }
 
-.pri_table_list>button:hover {
+.personnels-contact>button:hover {
   background-color: #fff;
   border: 1px solid #333;
   color: #333;

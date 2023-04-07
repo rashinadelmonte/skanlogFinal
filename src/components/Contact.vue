@@ -70,9 +70,9 @@ export default {
         // Get form data
         const formData = {
           name: event.target.name.value,
-          SenderEmail: event.target.SenderEmail.value,
+          senderEmail: event.target.senderEmail.value,
           subject: event.target.subject.value,
-          RecipientEmail: event.target.RecipientEmail.value,
+          /* RecipientEmail: event.target.RecipientEmail.value, */
           message: event.target.message.value
         };
 
@@ -80,7 +80,7 @@ export default {
           
           // Send form data to server-side endpoint
           const response = await api.post('/Inquiry', formData);
-          console.log(formData);
+          console.log(response);
           // Handle response as needed
           
         } catch (error) {
@@ -172,14 +172,14 @@ export default {
                     <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                   </div>
                   <div class="form-group mt-3">
-                    <input type="email" class="form-control" name="SenderEmail" id="email" placeholder="Your Email" required>
+                    <input type="email" class="form-control" name="senderEmail" id="email" placeholder="Your Email" required>
                   </div>
                   <div class="form-group mt-3">
                     <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
                   </div>
-                  <div class="form-group mt-3">
+                  <!-- <div class="form-group mt-3">
                     <input type="text" class="form-control" name="RecipientEmail" id="subject" placeholder="Your Recipient Email" required>
-                  </div>
+                  </div> -->
                   <div class="form-group mt-3">
                     <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
                   </div> 

@@ -56,6 +56,7 @@
                 <h2>Send your resume here: <span>{{ email.recipientEmail }}</span></h2>
             </div>
         </div>
+        
     <Footer></Footer>
 </template>
 

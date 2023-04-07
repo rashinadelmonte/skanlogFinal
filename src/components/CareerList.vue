@@ -71,28 +71,19 @@
     <div class="career-header">
         <div class="section-headline text-center">
             <h2>Job Listing</h2>
-            <div class="row justify-content-center mb-5">
-                <div class="col-12 col-md-10 col-lg-8">
-                    <form class="card card-sm">
-                        <div class="card-body row no-gutters align-items-center">
-                            <div class="col-auto">
-                                <i class="fas fa-search h4 text-body"></i>
-                            </div>
-                            <div class="col">
-                                <input 
-                                    class="form-control form-control-lg form-control-borderless"
-                                    type="search" 
-                                    placeholder="Search job by title"
-                                    v-model="state.searchTerm"
-                                >
-                            </div>
-                            <div class="col-auto">
-                                <button class="btn btn-lg btn-success">Search</button>
-                            </div>
-                        </div>
-                    </form>
+            <div class="row height d-flex justify-content-center align-items-center">
+                <div class="col-md-6">
+                    <div class="form">
+                        <i class="fa fa-search"></i>
+                        <input 
+                          type="search" 
+                          class="form-control form-input" 
+                          placeholder="Search Job by title"
+                          v-model="state.searchTerm"  
+                        >
+                    </div>
                 </div>
-            </div>
+             </div>     
         </div>
         <div class="container">
             <div class="row gx-5 gy-3">
@@ -132,23 +123,58 @@
     </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
      @import 'bootstrap/scss/functions';
      @import 'bootstrap/scss/variables';
      @import 'bootstrap/scss/mixins';
 
-     .form-control-borderless {
-         border: none;
+    .form{
+        position: relative;
+        margin-bottom: 4rem;
     }
 
-    .form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
-        border: none;
-        outline: none;
+    .form .fa-search{
+        position: absolute;
+        top:20px;
+        left: 20px;
+        color: #9ca3af;
+    }
+
+    .form span{
+        position: absolute;
+        right: 17px;
+        top: 13px;
+        padding: 2px;
+        border-left: 1px solid #d1d5db;
+
+    }
+
+    .left-pan{
+       padding-left: 7px;
+    }
+
+    .left-pan i{
+        padding-left: 10px;
+    }
+
+    .form-input{
+        height: 55px;
+        text-indent: 33px;
+        border-radius: 10px;
+    }
+
+    .form-input:focus{
         box-shadow: none;
+        border:none;
     }
 
     .card {
         border-radius: 1.3rem;
+    }
+
+    input::placeholder {
+        font-weight: 600;
+        font-size: 1rem;
     }
 
 
@@ -200,6 +226,7 @@
        /*  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; */
        background: #ffff;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 3px 20px;
+
     }
 
 
@@ -215,19 +242,180 @@
         border-radius: 30px;
     }
 
-    .career-item button a{
-        background: #444 none repeat scroll 0 0;
-        border: 1px solid #444;
-        color: #fff;
-        margin-bottom: 25px;
-        text-transform: uppercase;
-        transition: all 0.4s ease 0s;
-        border-radius: 30px;
-    }
-
     .career-item button:nth-child(2) {
         background-color: #3EC1D5;
         outline: none;
         border: none;
     }
+
+    @media (min-width: 320px) and (max-width: 321px) { 
+        .career-item h2 {
+            font-size: 1.4rem;
+            text-align: center;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .career-item p {
+            font-size: 14px;
+            font-weight: 100;
+            width: 100% !important;
+            text-align: left;
+        }
+        .career-item button {
+            position: relative;
+            column-gap: 5rem;
+            font-size: 8px;
+            padding: 5px 20px;
+            margin-top: 5rem;
+        }
+
+        input::placeholder {
+            font-size: 13px 
+        }
+        .search-wrapper button {
+            font-size: 10px;
+        }
+    }  
+
+    @media (min-width: 280px) and (max-width: 281px) { 
+        .career-item h2 {
+            font-size: 1.4rem;
+            text-align: center;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .career-item p {
+            font-size: 14px;
+            font-weight: 100;
+            width: 100% !important;
+            text-align: left;
+        }
+        .career-item button {
+            position: relative;
+            column-gap: 5rem;
+            font-size: 10px;
+            padding: 5px 10px;
+            margin-top: 11rem;
+        }
+    }  
+
+
+    @media (min-width: 375px) and (max-width: 376px) { 
+        .career-item h2 {
+            font-size: 1.4rem;
+            text-align: center;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .career-item p {
+            font-size: 14px;
+            font-weight: 100;
+            width: 100% !important;
+            text-align: left;
+        }
+        .career-item button {
+            position: relative;
+            column-gap: 5rem;
+            font-size: 10px;
+            padding: 5px 30px;
+            margin-top: 5rem;
+        }
+    }  
+
+    @media (min-width: 390px) and (max-width: 396px) { 
+        .career-item h2 {
+            font-size: 1.4rem;
+            text-align: center;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .career-item p {
+            font-size: 14px;
+            font-weight: 100;
+            width: 100% !important;
+            text-align: left;
+        }
+        .career-item button {
+            position: relative;
+            column-gap: 5rem;
+            font-size: 10px;
+            padding: 5px 30px;
+            margin-top: 5rem;
+        }
+    }  
+
+    @media (min-width: 360px) and (max-width: 361px) { 
+        .career-item h2 {
+            font-size: 1.4rem;
+            text-align: center;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .career-item p {
+            font-size: 14px;
+            font-weight: 100;
+            width: 100% !important;
+            text-align: left;
+        }
+        .career-item button {
+            position: relative;
+            column-gap: 5rem;
+            font-size: 10px;
+            padding: 5px 30px;
+            margin-top: 5rem;
+        }
+    }  
+
+    
+
+    @media (min-width: 412px) and (max-width: 416px) { 
+        .career-item h2 {
+            font-size: 1.4rem;
+            text-align: center;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .career-item p {
+            font-size: 14px;
+            font-weight: 100;
+            width: 100% !important;
+            text-align: left;
+        }
+        .career-item button {
+            position: relative;
+            column-gap: 5rem;
+            font-size: 10px;
+            padding: 5px 30px;
+            margin-top: 1rem;
+        }
+    }  
+
+    @media (min-width: 1024px) and (max-width: 1025px) { 
+        .career-item h2 {
+            font-size: 1.5rem;
+            text-align: center;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .career-item p {
+            font-size: 14px;
+            font-weight: 100;
+            width: 100% !important;
+            text-align: left;
+        }
+        .career-item button {
+            position: relative;
+            column-gap: 5rem;
+            font-size: 10px;
+            padding: 5px 30px;
+            margin-top: 1rem;
+        }
+    }  
 </style>

@@ -50,8 +50,7 @@
   window.addEventListener("scroll", checkPersonnelVisibility);
 </script>
 <template>
-  <div class="pricing-area area-padding">
-    <div class="container">
+  <div class="">
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-6">
           <div 
@@ -63,36 +62,41 @@
           </div>
         </div>
       </div>
-      <div 
-        class="row personnels"
+      <div class="">
+        <div 
+        class="personnels"
         id="row-personnel"
         :class="{ 'row-visible': data.isPersonnelVisible }"
       >
-        <div class="col-xs-2 col-md-5">
-          <div class="pri_table_list active">
+          <div class="personnels-contact active">
             <h3>Personnel Inquiry</h3>
             <h3 v-html="data.personnel.content"></h3>
             <button>Contact</button>
           </div>
-        </div>
-        <div class="col-xs-2 col-md-5">
-          <div class="pri_table_list active">
-            <h3>{{ data.admin.type }}</h3>
-            <h3 v-html="data.admin.content"></h3>
+
+          <div class="personnels-contact active">
+            <h3>Administrative Inquiry</h3>
+            <h3 v-html="data.personnel.content"></h3>
             <button>Contact</button>
           </div>
         </div>
       </div>
-    </div>
+      
+  
   </div>
 
 
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .personnels {
   justify-content: center;
-  column-gap: 5rem;
+  column-gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 1rem;
+  
 }
 .visible {
   opacity: 1;
@@ -129,4 +133,220 @@
   visibility: visible;
   transform: translateX(0);
 }
+
+
+@media (min-width: 280px) and (max-width: 281px) { 
+    .personnels {
+        display: inline-grid !important;
+        row-gap: 2rem;
+     }
+     .personnels-contact {
+        width: 250px !important;
+     }
+     .personnels-contact h3 {
+       font-size: 1rem;
+     }
+  }  
+
+@media (min-width: 399px) and (max-width: 400px) { 
+    .personnels {
+        display: inline-grid !important;
+        row-gap: 2rem;
+        padding-left: 10px;
+  
+     }
+     .personnels-contact {
+        width: 365px !important;
+     }
+  }  
+
+@media (min-width: 375px) and (max-width: 376px) { 
+    .personnels {
+        display: inline-grid !important;
+        row-gap: 2rem;
+     }
+     .personnels-contact {
+        width: 340px !important;
+     }
+
+     .personnels-contact h3 {
+        font-size: 1.2rem;
+     }
+  }
+
+  @media (min-width: 390px) and (max-width: 391px) { 
+    .personnels {
+        display: inline-grid !important;
+        row-gap: 2rem;
+        padding-left: 5px;
+  
+     }
+     .personnels-contact {
+        width: 350px !important;
+     }
+
+     .personnels-contact h3 {
+        font-size: 1.3rem;
+     }
+  } 
+
+  @media (min-width: 320px) and (max-width: 321px) { 
+    .personnels {
+        display: inline-grid !important;
+        row-gap: 2rem;
+     }
+    .personnels-contact {
+      width: 290px !important;
+    }
+     .personnels-contact h3 {
+      font-size: 1.2rem;
+     }
+     
+  } 
+
+  
+  @media (min-width: 393px) and (max-width: 394px) { 
+    .personnels {
+        display: inline-grid !important;
+        row-gap: 2rem;
+        
+     }
+     .personnels-contact {
+        width: 350px !important;
+        margin-left: 5px;
+     }
+     .personnels-contact h3 {
+       font-size: 1.2rem;
+     }
+  } 
+
+  @media (min-width: 360px) and (max-width: 361px) { 
+    .personnels {
+        display: inline-grid !important;
+        row-gap: 2rem;
+        
+     }
+     .personnels-contact {
+        width: 335px !important;
+     }
+
+     .personnels-contact h3 {
+      font-size: 1.2rem;
+     }
+  } 
+
+  @media (min-width: 412px) and (max-width: 413px) { 
+    .personnels {
+        display: inline-grid !important;
+        row-gap: 2rem;
+     }
+     .personnels-contact {
+        width: 380px !important;
+     }
+
+     .personnels-contact h3 {
+      font-size: 1.2rem;
+     }
+  } 
+
+
+  @media (min-width: 414px) and (max-width: 415px) { 
+    .personnels {
+        display: inline-grid !important;
+        row-gap: 2rem;
+        padding-left: 10px;
+     }
+     .personnels-contact {
+        width: 375px !important;
+     }
+
+     .personnels-contact h3 {
+      font-size: 1.3rem;
+     }
+  }  
+
+  @media (min-width: 540px) and (max-width: 541px) { 
+    .personnels {
+        display: inline-grid !important;
+        row-gap: 2rem;
+     }
+     .personnels-contact {
+        width: 510px !important;
+        
+     }
+  }  
+
+  @media (min-width: 820px) and (max-width: 821px) { 
+    .personnels-contact h3 {
+      font-size: 1.3rem;
+    }
+     .personnels-contact {
+        width: 810px !important;
+        margin-left: 20px;
+     }
+  }  
+
+  @media (min-width: 768px) and (max-width: 769px) { 
+    .personnels-contact h3 {
+      font-size: 1.2rem;
+    }
+
+    .personnels-contact {
+        width: 810px !important;
+        margin-left: 20px;
+     }
+  }  
+
+  @media (min-width: 912px) and (max-width: 913px) { 
+    .personnels-contact h3 {
+      font-size: 1.3rem;
+     
+    }
+
+    .personnels-contact {
+      width: 912px !important;
+      margin-left: 10px;
+    }
+  }  
+
+  @media (min-width: 1024px) and (max-width: 1025px) { 
+    .personnels-contact h3 {
+      font-size: 1.3rem;
+    }
+
+    .personnels-contact {
+      width: 900px !important;
+      margin-right: 15px;
+  
+    }
+  }  
+  @media (min-width: 1280px) and (max-width: 1281px) { 
+    .personnels-contact h3 {
+      font-size: 1.3rem;
+    }
+
+    .personnels-contact {
+      width: 700px !important;   
+      margin-left: 15px;
+    }
+  }  
+/*   @import 'bootstrap/scss/functions';
+  @import 'bootstrap/scss/variables';
+  @import 'bootstrap/scss/mixins';
+
+  @include media-breakpoint-only(xs) {  
+      .personnels {
+          display: inline-grid !important;
+          row-gap: 2rem;
+          width: 375px;
+          padding: 1rem 1rem 1rem 1rem;
+        }
+      
+      
+    } */
+/* @include media-breakpoint-only(sm) {  }
+@include media-breakpoint-only(md) {  }
+@include media-breakpoint-only(lg) {  }
+@include media-breakpoint-only(xl) {  }
+@include media-breakpoint-only(xxl) {  } */
 </style>

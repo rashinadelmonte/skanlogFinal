@@ -3,6 +3,10 @@
     import api from "@/services/apiService";
     import { useRouter } from "vue-router";
 
+    onMounted(() => {
+        window.scrollTo(0, 0);
+    })
+
     const getAllData = ref([]);
     const router = useRouter();
 

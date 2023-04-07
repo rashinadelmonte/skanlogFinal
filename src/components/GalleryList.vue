@@ -21,6 +21,10 @@
             default: Array
         }
     })
+
+    onMounted(() => {
+        window.scrollTo(0, 0);
+    })
     
     const images = ref([])
     watch(
