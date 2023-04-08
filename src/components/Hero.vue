@@ -8,6 +8,7 @@
 
 
     const listOfMedia = ref([]);
+   /*  const carouselIndicators = ref(null); */
     const fileType = ref('');
 
     onMounted(async () => {
@@ -15,25 +16,28 @@
         // Fetch the list of galleries
         const responseGallery = await api.get("/MediaSliderManager");
         listOfMedia.value = responseGallery.data;
-        console.log(listOfMedia.value);
-
-    
-       /*  fileType.value = listOfMedia.value[0].fileType; */
-
-       
-    
-       
+        console.log(listOfMedia.value);   
         } catch (error) {
           console.error(error);
         }
     });
 
-   
+   /*  watch(listOfMedia, () => {
+        nextTick(() => {
+          carouselIndicators.value.innerHtml = '';
 
-
-    
-
+            for (let i = 0; i < listOfMedia.value.length; i++) {
+              const li = document.createElement('li');
+              li.setAttribute('data-bs-target', '#heroCarousel');
+              li.setAttribute('data-bs-slide-to', i.toString());
+              li.classList.add(i === 0 ? 'active' : '');
+              carouselIndicators.value.appendChild();
+            }
+        });
+    })
+    */
 </script>
+
 <template>
     <!-- ======= hero Section ======= -->
   <section id="hero">
@@ -44,40 +48,21 @@
         data-bs-ride="carousel" 
         :data-bs-interval="fileType.startsWith('png') ? 500 : 16000"> 
 
-    <!--   <ol id="hero-carousel-indicators" class="carousel-indicators"></ol> -->
+      <!-- <ol ref="carouselIndicators" id="hero-carousel-indicators" class="carousel-indicators"></ol> -->
       
         <div class="carousel-inner" role="listbox">
-          <!-- <div 
-            v-for="(media, index) in listOfMedia" :key="media"
-            :class="{'carousel-item': true, 'active': index === 0}"
-            >
-              <div v-if="media.fileType.startsWith('png')">
-                <img :src="'https://localhost:7243/MediaSliderManager/' + media.fileName" alt="">
-              </div>
-              <div v-else-if="media.fileType.startsWith('mp4')">
-                <video autoplay loop muted>
-                    <source :src="'https://localhost:7243/MediaSliderManager/' + media.fileName">
-                </video>
-              </div>
-          
-              <div class="carousel-container">
-                <div class="container">
-                  <h2 class="animate__animated animate__fadeInDown">The Best Business Information </h2>
-                  <p class="animate__animated animate__fadeInUp">We're In The Business Of Helping You Start Your Business</p>
-                  <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
-                </div>
-              </div>
-          </div> -->
-
           <div v-for="(media, index) in listOfMedia" :key="media">
-            <div class="carousel-item" :class="{'active': index === 0}" :style="{ 'background-image': `url(${'https://localhost:7243/MediaSliderManager/' + media.fileName})` }" v-if="media.fileType.startsWith('png')">
-              <div class="carousel-container">
-                  <div class="container">
-                    <h2 class="animate__animated animate__fadeInDown">The Best Business Information </h2>
-                    <p class="animate__animated animate__fadeInUp">We're In The Business Of Helping You Start Your Business</p>
-                    <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+            <div class="carousel-item" 
+                :class="{'active': index === 0}" 
+                :style="{ 'background-image': `url(${'https://localhost:7243/MediaSliderManager/' + media.fileName})` }"
+                v-if="media.fileType.startsWith('png')">
+                  <div class="carousel-container">
+                      <div class="container">
+                        <h2 class="animate__animated animate__fadeInDown">The Best Business Information </h2>
+                        <p class="animate__animated animate__fadeInUp">We're In The Business Of Helping You Start Your Business</p>
+                        <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                      </div>
                   </div>
-                </div>
             </div>
             <div class="carousel-item" :class="{'active': index === 0}" v-else>
               <video autoplay loop muted class="videoBG">
