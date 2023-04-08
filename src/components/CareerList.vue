@@ -132,6 +132,7 @@
         position: relative;
         margin-bottom: 4rem;
     }
+    
 
     .form .fa-search{
         position: absolute;
@@ -203,6 +204,11 @@
         margin-top: 1rem;
     }
 
+
+    .career-item h2 {
+        font-size: 1.7rem;
+        font-weight: 700;
+    }
    
     #career-footer {
         column-gap: 0.5rem;
