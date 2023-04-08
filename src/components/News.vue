@@ -1,5 +1,4 @@
 <script setup lang="ts">
-      import image from "@/assets/assets/img/about/1.jpg";
       import { onMounted, ref, reactive, computed, watch } from "vue";
       import api from "@/services/apiService";
 
@@ -14,6 +13,12 @@
             getAllData.value = getData.data;
             console.log(getAllData.value);
 
+      });
+
+      watch(selectedDate, (newVal, oldVal) => {
+          if (!newVal) {
+              state.currentPage = 1;
+          }
       });
 
       const formatDate = (dateString: string) => {
@@ -69,23 +74,18 @@
 </script>
 
 <template>
-     <div class="news-area area-padding">
-      <div class="container">
-        <div class="block">
-            <el-date-picker
-              v-model="selectedDate.value"
-              type="month"
-              placeholder="Select a month"
-              class="datepicker"
-            />
-         </div>
-      </div>
-      
+     <div class="news-area">   
         <div class="container">
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="section-headline">
                 <h2>Latest News</h2>
               </div>
+                <el-date-picker
+                    v-model="selectedDate.value"
+                    type="month"
+                    placeholder="Select a month"
+                    class="datepicker"
+                />
           </div>
             <div class="news-wrapper">
               <h3>Top Stories > </h3>
@@ -151,17 +151,15 @@
     }
   }
 
-  .block {
-    float: right;
-    margin-top: 2rem;
-   
-  }
+  
 
   .datepicker {
     width: 18rem !important;
     height: 3.5rem !important;
     background: #ffff;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    float: right;
+    top: -5rem;
    
   }
 
@@ -259,7 +257,9 @@
 
   .section-headline {
     margin-top: 8rem;
+    margin-bottom: 6rem;
     text-align: center;    
+    
   }
 
   @media (min-width: 280px) and (max-width: 768px) { 

@@ -33,7 +33,7 @@
         <div class="news-headline">
             <button @click="goBack">Back to News</button>
             <h3 v-html="getAllData.title"></h3>
-             <div v-html="getAllData.article"></div>
+            <div class="article" v-html="getAllData.article"></div>
         </div>
     <Footer></Footer>
 </template>
@@ -60,14 +60,61 @@
     .news-headline h3 {
         text-align: center;
         margin-bottom: 5rem;
+        font-weight: 600;
     }
+
+    .article {
+        font-size: 1rem;
+        margin-left: -3rem;
+        line-height: 1.9;
+        font-weight: 500;
+    }
+
+    @media (min-width: 280px) and (max-width: 281px) { 
+        .news-headline button {
+            position: relative;
+            left: -4rem;
+            top: -3rem;
+            padding: 7px 15px;
+            width: 111%;
+         }
+
+         .news-headline h3 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+         }
+
+         .article {
+            font-size: 1rem;
+            width: 191%;
+            margin-left: -3rem;
+            line-height: 1.9;
+            font-weight: 500;
+         }
+    }
+
 
     @media (min-width: 375px) and (max-width: 376px) { 
         .news-headline button {
             position: relative;
             left: -4rem;
             top: -3rem;
-            padding: 10px 24px;
+            padding: 7px 15px;
+         }
+
+         .news-headline h3 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+         }
+
+         .article {
+            font-size: 1rem;
+            width: 136%;
+            margin-left: -3rem;
+            line-height: 1.9;
+            font-weight: 500;
          }
     }
 
@@ -76,7 +123,206 @@
             position: relative;
             left: -4rem;
             top: -3rem;
-            padding: 10px 24px;
+            padding: 7px 15px;
+         }
+
+         .news-headline h3 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+         }
+
+         .article {
+            font-size: 1rem;
+            width: 136%;
+            margin-left: -3rem;
+            line-height: 1.9;
+            font-weight: 500;
          }
     }
+
+    @media (min-width: 414px) and (max-width: 415px) { 
+        .news-headline button {
+            position: relative;
+            left: -4rem;
+            top: -3rem;
+            padding: 7px 15px;
+         }
+
+         .news-headline h3 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+         }
+
+         .article {
+            font-size: 1rem;
+            width: 136%;
+            margin-left: -3rem;
+            line-height: 1.9;
+            font-weight: 500;
+         }
+    }
+
+    @media (min-width: 390px) and (max-width: 395px) { 
+        .news-headline button {
+            position: relative;
+            left: -4rem;
+            top: -3rem;
+            padding: 7px 15px;
+         }
+
+         .news-headline h3 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+         }
+
+         .article {
+            font-size: 1rem;
+            width: 136%;
+            margin-left: -3rem;
+            line-height: 1.9;
+            font-weight: 500;
+         }
+    }
+
+    @media (min-width: 360px) and (max-width: 361px) { 
+        .news-headline button {
+            position: relative;
+            left: -4rem;
+            top: -3rem;
+            padding: 7px 15px;
+         }
+
+         .news-headline h3 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+         }
+
+         .article {
+            font-size: 1rem;
+            width: 136%;
+            margin-left: -3rem;
+            line-height: 1.9;
+            font-weight: 500;
+         }
+    }
+
+    @media (min-width: 412px) and (max-width: 415px) { 
+        .news-headline button {
+            position: relative;
+            left: -4rem;
+            top: -3rem;
+            padding: 7px 15px;
+         }
+
+         .news-headline h3 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+         }
+
+         .article {
+            font-size: 1rem;
+            width: 136%;
+            margin-left: -3rem;
+            line-height: 1.9;
+            font-weight: 500;
+         }
+    }
+
+    @media (min-width: 540px) and (max-width: 541px) { 
+        .news-headline button {
+            position: relative;
+            left: -4rem;
+            top: -3rem;
+            padding: 7px 15px;
+         }
+
+         .news-headline h3 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+         }
+
+         .article {
+            font-size: 1rem;
+            width: 124%;
+            margin-left: -3rem;
+            line-height: 1.9;
+            font-weight: 500;
+         }
+    }
+
+
+    @media (min-width: 820px) and (max-width: 821px) { 
+        .news-headline button {
+            position: relative;
+            left: -4rem;
+            top: -3rem;
+            padding: 7px 15px;
+         }
+
+         .news-headline h3 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+         }
+
+         .article {
+            font-size: 1rem;
+            margin-left: -3rem;
+            line-height: 1.9;
+            font-weight: 500;
+         }
+    }
+
+    @media (min-width: 768px) and (max-width: 769px) { 
+        .news-headline button {
+            position: relative;
+            left: -4rem;
+            top: -3rem;
+            padding: 7px 15px;
+         }
+
+         .news-headline h3 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+         }
+
+         .article {
+            font-size: 1rem;
+            margin-left: -3rem;
+            line-height: 1.9;
+            font-weight: 500;
+         }
+    }
+
+    @media (min-width: 912px) and (max-width: 913px) { 
+        .news-headline button {
+            position: relative;
+            left: -4rem;
+            top: -3rem;
+            padding: 7px 15px;
+         }
+
+         .news-headline h3 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+         }
+
+         .article {
+            font-size: 1rem;
+            margin-left: -3rem;
+            line-height: 1.9;
+            font-weight: 500;
+         }
+    }
+
+   
+
 </style>

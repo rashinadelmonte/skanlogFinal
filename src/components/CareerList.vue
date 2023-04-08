@@ -130,7 +130,7 @@
 
     .form{
         position: relative;
-        margin-bottom: 4rem;
+        margin-bottom: -1rem;
     }
     
 
@@ -219,6 +219,7 @@
         overflow-wrap: break-word;
         height: 70px;
         margin-bottom: 134px;
+        line-height: 1.9;
     }
    
     .career-header {
@@ -282,9 +283,17 @@
         .search-wrapper button {
             font-size: 10px;
         }
+
+        .form {
+            margin-bottom: -4rem;
+        }
     }  
 
     @media (min-width: 280px) and (max-width: 281px) { 
+
+        .form {
+            margin-bottom: -4rem;
+        }
         .career-item h2 {
             font-size: 1.4rem;
             text-align: center;
@@ -309,6 +318,10 @@
 
 
     @media (min-width: 375px) and (max-width: 376px) { 
+
+        .form {
+            margin-bottom: -4rem;
+        }
         .career-item h2 {
             font-size: 1.4rem;
             text-align: center;
@@ -332,6 +345,10 @@
     }  
 
     @media (min-width: 390px) and (max-width: 396px) { 
+
+        .form {
+            margin-bottom: -4rem;
+        }
         .career-item h2 {
             font-size: 1.4rem;
             text-align: center;
@@ -355,6 +372,10 @@
     }  
 
     @media (min-width: 360px) and (max-width: 361px) { 
+
+        .form {
+            margin-bottom: -4rem;
+        }
         .career-item h2 {
             font-size: 1.4rem;
             text-align: center;
@@ -380,6 +401,10 @@
     
 
     @media (min-width: 412px) and (max-width: 416px) { 
+
+        .form {
+            margin-bottom: -4rem;
+        }
         .career-item h2 {
             font-size: 1.4rem;
             text-align: center;
@@ -403,6 +428,10 @@
     }  
 
     @media (min-width: 1024px) and (max-width: 1025px) { 
+
+        .form {
+            margin-bottom: -4rem;
+        }
         .career-item h2 {
             font-size: 1.5rem;
             text-align: center;

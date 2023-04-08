@@ -2,7 +2,7 @@
     import { computed, onMounted, ref, reactive, watch, nextTick } from "vue";
     import api from "@/services/apiService";
     import GalleryMain from "@/components/GalleryMain.vue";
-
+    import { loadMainJS } from "@/assets/assets/js/main.js"
 
     const listOfGallery = ref([]);
 
