@@ -154,13 +154,15 @@
   .block {
     float: right;
     margin-top: 2rem;
-    background: #ffff;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+   
   }
 
   .datepicker {
     width: 18rem !important;
     height: 3.5rem !important;
+    background: #ffff;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+   
   }
 
   .datepicker input::-webkit-input-placeholder {
@@ -259,5 +261,14 @@
     margin-top: 8rem;
     text-align: center;    
   }
+
+  @media (min-width: 280px) and (max-width: 768px) { 
+    .datepicker {
+      width: 13rem !important;
+      height: 2.5rem !important;
+      position: relative !important;
+      border-radius: 10rem !important;
+    }
+  } 
 
 </style>

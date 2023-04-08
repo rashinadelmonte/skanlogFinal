@@ -1,9 +1,11 @@
 <script setup lang="ts">
-    import { computed, onMounted, ref, reactive, watch } from "vue";
+    import { computed, onMounted, ref, reactive, watch, nextTick } from "vue";
     import api from "@/services/apiService";
     import GalleryMain from "@/components/GalleryMain.vue";
 
+
     const listOfGallery = ref([]);
+
     onMounted(async () => {
       try {
         // Fetch the list of galleries

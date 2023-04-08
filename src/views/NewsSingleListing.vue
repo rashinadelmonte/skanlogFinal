@@ -1,7 +1,12 @@
 <script setup lang="ts">
-    import { getCurrentInstance, onMounted, ref, reactive } from "vue";
+    import { getCurrentInstance, onMounted, ref, reactive, nextTick } from "vue";
     import api from "@/services/apiService";
     import { useRouter } from "vue-router";
+    import { loadMainJS } from "@/assets/assets/js/main.js"
+
+    nextTick(() => {
+        loadMainJS();
+    })
 
     onMounted(() => {
         window.scrollTo(0, 0);
@@ -55,5 +60,23 @@
     .news-headline h3 {
         text-align: center;
         margin-bottom: 5rem;
+    }
+
+    @media (min-width: 375px) and (max-width: 376px) { 
+        .news-headline button {
+            position: relative;
+            left: -4rem;
+            top: -3rem;
+            padding: 10px 24px;
+         }
+    }
+
+    @media (min-width: 320px) and (max-width: 321px) { 
+        .news-headline button {
+            position: relative;
+            left: -4rem;
+            top: -3rem;
+            padding: 10px 24px;
+         }
     }
 </style>

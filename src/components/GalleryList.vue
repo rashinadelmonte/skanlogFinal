@@ -1,15 +1,6 @@
 <script setup lang="ts">
-    import { watch, ref, onMounted } from "vue";
-   /*  import { loadScript } from "vue-plugin-load-script"
-
-    const loadAllScripts = async() => {
-      await loadScript('/src/assets/assets/vendor/aos/aos.js')
-      console.log("load aos");
-    }
-
-    onMounted(() => {
-      loadAllScripts();
-    }) */
+    import { watch, ref, onMounted, nextTick } from "vue";
+    import { loadMainJS } from "@/assets/assets/js/main.js"
 
     const props = defineProps({
         title: {
@@ -24,7 +15,12 @@
 
     onMounted(() => {
         window.scrollTo(0, 0);
+
+        nextTick(() => {
+          loadMainJS();
+        })
     })
+
     
     const images = ref([])
     watch(
