@@ -54,7 +54,7 @@
       <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-6">
           <div 
-           class="section-headline text-center"
+           class="section-headline"
            id="personnel" 
            :class="{ 'visible': data.isPersonnelVisible }"
           >
@@ -89,264 +89,279 @@
 </template>
 
 <style scoped lang="scss">
-.personnels {
-  justify-content: center;
-  column-gap: 1rem;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  margin: 1rem;
-  
-}
-.visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 1s, transform 1s;
-}
-.row-visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 1s, transform 1s;
-}
-#personnel {  
-  opacity: 0;
-  visibility: hidden;
-  /* transform: translateX(-100%); *//* Para left to middle */
-  transform: translateY(-50%);/* Para gikan sa top to middle */
-/*   transform: translateY(100%)  Para Gikan sa ubos padong middle*/ 
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.7s ease-in-out;
-}
-#personnel.visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(0);
-}
-#row-personnel {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(100%);/* Para left to middle */
-/*   transform: translateY(100%)  Para Gikan sa ubos padong middle*/ 
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.7s ease-in-out;
-}
-#row-personnel.row-visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(0);
-}
-
-
-@media (min-width: 280px) and (max-width: 281px) { 
-    .personnels {
-        display: inline-grid !important;
-        row-gap: 2rem;
-     }
-     .personnels-contact {
-        width: 250px !important;
-     }
-     .personnels-contact h3 {
-       font-size: 1rem;
-     }
-  }  
-
-@media (min-width: 399px) and (max-width: 400px) { 
-    .personnels {
-        display: inline-grid !important;
-        row-gap: 2rem;
-        padding-left: 10px;
-  
-     }
-     .personnels-contact {
-        width: 365px !important;
-     }
-  }  
-
-@media (min-width: 375px) and (max-width: 376px) { 
-    .personnels {
-        display: inline-grid !important;
-        row-gap: 2rem;
-     }
-     .personnels-contact {
-        width: 340px !important;
-     }
-
-     .personnels-contact h3 {
-        font-size: 1.2rem;
-     }
+  .personnels {
+    justify-content: center;
+    column-gap: 1rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 1rem;
+  }
+  .visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1s, transform 1s;
+  }
+  .row-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1s, transform 1s;
+  }
+  #personnel {  
+    opacity: 0;
+    visibility: hidden;
+    /* transform: translateX(-100%); *//* Para left to middle */
+    transform: translateY(-50%);/* Para gikan sa top to middle */
+  /*   transform: translateY(100%)  Para Gikan sa ubos padong middle*/ 
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.7s ease-in-out;
+  }
+  #personnel.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+  #row-personnel {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100%);/* Para left to middle */
+  /*   transform: translateY(100%)  Para Gikan sa ubos padong middle*/ 
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.7s ease-in-out;
+  }
+  #row-personnel.row-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
   }
 
-  @media (min-width: 390px) and (max-width: 391px) { 
-    .personnels {
-        display: inline-grid !important;
-        row-gap: 2rem;
-        padding-left: 5px;
-  
-     }
-     .personnels-contact {
-        width: 350px !important;
-     }
 
-     .personnels-contact h3 {
-        font-size: 1.3rem;
-     }
-  } 
-
-  @media (min-width: 320px) and (max-width: 321px) { 
-    .personnels {
-        display: inline-grid !important;
-        row-gap: 2rem;
-     }
-    .personnels-contact {
-      width: 290px !important;
-    }
-     .personnels-contact h3 {
-      font-size: 1.2rem;
-     }
-     
-  } 
-
-  
-  @media (min-width: 393px) and (max-width: 394px) { 
-    .personnels {
-        display: inline-grid !important;
-        row-gap: 2rem;
-        
-     }
-     .personnels-contact {
-        width: 350px !important;
-        margin-left: 5px;
-     }
-     .personnels-contact h3 {
-       font-size: 1.2rem;
-     }
-  } 
-
-  @media (min-width: 360px) and (max-width: 361px) { 
-    .personnels {
-        display: inline-grid !important;
-        row-gap: 2rem;
-        
-     }
-     .personnels-contact {
-        width: 335px !important;
-     }
-
-     .personnels-contact h3 {
-      font-size: 1.2rem;
-     }
-  } 
-
-  @media (min-width: 412px) and (max-width: 413px) { 
-    .personnels {
-        display: inline-grid !important;
-        row-gap: 2rem;
-     }
-     .personnels-contact {
-        width: 380px !important;
-     }
-
-     .personnels-contact h3 {
-      font-size: 1.2rem;
-     }
-  } 
-
-
-  @media (min-width: 414px) and (max-width: 415px) { 
-    .personnels {
-        display: inline-grid !important;
-        row-gap: 2rem;
-        padding-left: 10px;
-     }
-     .personnels-contact {
-        width: 375px !important;
-     }
-
-     .personnels-contact h3 {
-      font-size: 1.3rem;
-     }
-  }  
-
-  @media (min-width: 540px) and (max-width: 541px) { 
-    .personnels {
-        display: inline-grid !important;
-        row-gap: 2rem;
-     }
-     .personnels-contact {
-        width: 510px !important;
-        
-     }
-  }  
-
-  @media (min-width: 820px) and (max-width: 821px) { 
-    .personnels-contact h3 {
-      font-size: 1.3rem;
-    }
-     .personnels-contact {
-        width: 810px !important;
-        margin-left: 20px;
-     }
-  }  
-
-  @media (min-width: 768px) and (max-width: 769px) { 
-    .personnels-contact h3 {
-      font-size: 1.2rem;
-    }
-
-    .personnels-contact {
-        width: 810px !important;
-        margin-left: 20px;
-     }
-  }  
-
-  @media (min-width: 912px) and (max-width: 913px) { 
-    .personnels-contact h3 {
-      font-size: 1.3rem;
-     
-    }
-
-    .personnels-contact {
-      width: 912px !important;
-      margin-left: 10px;
-    }
-  }  
-
-  @media (min-width: 1024px) and (max-width: 1025px) { 
-    .personnels-contact h3 {
-      font-size: 1.3rem;
-    }
-
-    .personnels-contact {
-      width: 900px !important;
-      margin-right: 15px;
-  
-    }
-  }  
-  @media (min-width: 1280px) and (max-width: 1281px) { 
-    .personnels-contact h3 {
-      font-size: 1.3rem;
-    }
-
-    .personnels-contact {
-      width: 700px !important;   
-      margin-left: 15px;
-    }
-  }  
-/*   @import 'bootstrap/scss/functions';
-  @import 'bootstrap/scss/variables';
-  @import 'bootstrap/scss/mixins';
-
-  @include media-breakpoint-only(xs) {  
+  @media (min-width: 280px) and (max-width: 281px) { 
       .personnels {
           display: inline-grid !important;
           row-gap: 2rem;
-          width: 375px;
-          padding: 1rem 1rem 1rem 1rem;
-        }
+      }
+      .personnels-contact {
+          width: 260px !important;
+      }
+      .personnels-contact h3 {
+        font-size: 1rem;
+      }
+
+      .section-headline h2 {
+        font-size: 1.5rem;
+      }
+    }  
+
+  @media (min-width: 399px) and (max-width: 400px) { 
+      .personnels {
+          display: inline-grid !important;
+          row-gap: 2rem;
+          padding-left: 10px;
+    
+      }
+      .personnels-contact {
+          width: 365px !important;
+      }
+    }  
+
+  @media (min-width: 375px) and (max-width: 376px) { 
+      .personnels {
+          display: inline-grid !important;
+          row-gap: 2rem;
+      }
+      .personnels-contact {
+          width: 340px !important;
+      }
+
+      .personnels-contact h3 {
+          font-size: 1.2rem;
+      }
+    }
+
+    @media (min-width: 390px) and (max-width: 391px) { 
+      .personnels {
+          display: inline-grid !important;
+          row-gap: 2rem;
+          padding-left: 5px;
+    
+      }
+      .personnels-contact {
+          width: 350px !important;
+      }
+
+      .personnels-contact h3 {
+          font-size: 1.3rem;
+      }
+    } 
+
+    @media (min-width: 320px) and (max-width: 321px) { 
+      .personnels {
+          display: inline-grid !important;
+          row-gap: 2rem;
+      }
+      .personnels-contact {
+        width: 305px !important;
+      }
+      .personnels-contact h3 {
+        font-size: 1.2rem;
+      }
       
+    } 
+
+    
+    @media (min-width: 393px) and (max-width: 394px) { 
+      .personnels {
+          display: inline-grid !important;
+          row-gap: 2rem;
+          
+      }
+      .personnels-contact {
+          width: 350px !important;
+          margin-left: 5px;
+      }
+      .personnels-contact h3 {
+        font-size: 1.2rem;
+      }
+    } 
+
+    @media (min-width: 360px) and (max-width: 361px) { 
+      .personnels {
+          display: inline-grid !important;
+          row-gap: 2rem;
+          
+      }
+      .personnels-contact {
+          width: 345px !important;
+      }
+
+      .personnels-contact h3 {
+        font-size: 1.2rem;
+      }
+    } 
+
+    @media (min-width: 412px) and (max-width: 413px) { 
+      .personnels {
+          display: inline-grid !important;
+          row-gap: 2rem;
+      }
+      .personnels-contact {
+          width: 385px !important;
+      }
+
+      .personnels-contact h3 {
+        font-size: 1.2rem;
+      }
+    } 
+
+    @media (min-width: 425px) and (max-width: 426px) { 
+      .personnels {
+          display: inline-grid !important;
+          row-gap: 2rem;
+      }
+      .personnels-contact {
+          width: 385px !important;
+      }
+
+      .personnels-contact h3 {
+        font-size: 1.2rem;
+      }
+    } 
+
+
+    @media (min-width: 414px) and (max-width: 415px) { 
+      .personnels {
+          display: inline-grid !important;
+          row-gap: 2rem;
+      }
+      .personnels-contact {
+          width: 385px !important;
+      }
+
+      .personnels-contact h3 {
+        font-size: 1.3rem;
+      }
+    }  
+
+    @media (min-width: 540px) and (max-width: 541px) { 
+      .personnels {
+          display: inline-grid !important;
+          row-gap: 2rem;
+      }
+      .personnels-contact {
+          width: 520px !important;
+          
+      }
+    }  
+
+    @media (min-width: 820px) and (max-width: 821px) { 
+      .personnels-contact h3 {
+        font-size: 1.3rem;
+      }
+      .personnels-contact {
+          width: 810px !important;
+      }
+    }  
+
+    @media (min-width: 768px) and (max-width: 769px) { 
+      .personnels-contact h3 {
+        font-size: 1.2rem;
+      }
+
+      .personnels-contact {
+          width: 810px !important;
+          margin-left: 10px;
+      }
+    }  
+
+    @media (min-width: 912px) and (max-width: 913px) { 
+      .personnels-contact h3 {
+        font-size: 1.3rem;
       
-    } */
-/* @include media-breakpoint-only(sm) {  }
-@include media-breakpoint-only(md) {  }
-@include media-breakpoint-only(lg) {  }
-@include media-breakpoint-only(xl) {  }
-@include media-breakpoint-only(xxl) {  } */
+      }
+
+      .personnels-contact {
+        width: 912px !important;
+        margin-left: 10px;
+      }
+    }  
+
+    @media (min-width: 1024px) and (max-width: 1025px) { 
+      .personnels-contact h3 {
+        font-size: 1.3rem;
+      }
+
+      .personnels-contact {
+        width: 900px !important;
+        margin-right: 15px;
+    
+      }
+    }  
+    @media (min-width: 1280px) and (max-width: 1281px) { 
+      .personnels-contact h3 {
+        font-size: 1.3rem;
+      }
+
+      .personnels-contact {
+        width: 700px !important;   
+        margin-left: 15px;
+      }
+    }  
+  /*   @import 'bootstrap/scss/functions';
+    @import 'bootstrap/scss/variables';
+    @import 'bootstrap/scss/mixins';
+
+    @include media-breakpoint-only(xs) {  
+        .personnels {
+            display: inline-grid !important;
+            row-gap: 2rem;
+            width: 375px;
+            padding: 1rem 1rem 1rem 1rem;
+          }
+        
+        
+      } */
+  /* @include media-breakpoint-only(sm) {  }
+  @include media-breakpoint-only(md) {  }
+  @include media-breakpoint-only(lg) {  }
+  @include media-breakpoint-only(xl) {  }
+  @include media-breakpoint-only(xxl) {  } */
 </style>

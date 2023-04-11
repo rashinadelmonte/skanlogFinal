@@ -25,7 +25,8 @@ export default {
   import { computed, onMounted, ref, reactive, watch } from "vue";
   import api from "@/services/apiService";
   import vueRecaptcha from 'vue3-recaptcha2';
-
+  import { ElMessage } from 'element-plus'
+ /*  import { useToast } from 'vue-toastification'; */
   
     const map = reactive({
       center: { lat: 0, lng: 0 },
@@ -36,6 +37,8 @@ export default {
     const getPhoneNumber = ref({});
     const contactDetails = ref([]);
     const isVerified = ref(false);
+    const getRecipientEmail = ref({});
+    /* const toast = useToast(); */
 
     onMounted(async() => {
       const responseLocation = await api.get("/Location");
@@ -51,6 +54,8 @@ export default {
        /*  getEmail.value = responseEmail.data;
         console.log(getEmail.value); */
         getPhoneNumber.value = responseEmail.data[0].officePhoneNumber
+        getRecipientEmail.value = responseEmail.data[0].contactInfoId
+        console.log("contact info id", getRecipientEmail.value);
     })
 
 
@@ -64,7 +69,7 @@ export default {
       event.preventDefault();
 
         if (!isVerified.value) {
-          alert('Please complete the reCAPTCHA verification.');
+          ElMessage.error("Please complete the reCAPTCHA verification");
           return;
         }
         // Get form data
@@ -72,20 +77,22 @@ export default {
           name: event.target.name.value,
           senderEmail: event.target.senderEmail.value,
           subject: event.target.subject.value,
-          /* RecipientEmail: event.target.RecipientEmail.value, */
+          contactInfoId: getRecipientEmail.value,
           message: event.target.message.value
         };
 
         try {
-          
           // Send form data to server-side endpoint
           const response = await api.post('/Inquiry', formData);
           console.log(response);
           // Handle response as needed
-          
+
+          ElMessage.success("Successfully Submitted");
+          window.location.href = '/contact'; 
         } catch (error) {
           // Handle error as needed
           console.error(error);
+        
         }
     };
 
@@ -99,6 +106,7 @@ export default {
 </script>
 
 <template>
+    <!-- <ToastContainer /> -->
      <div id="contact" class="contact-area">
       <div class="contact-inner area-padding">
         <div class="contact-overly"></div>
@@ -193,11 +201,11 @@ export default {
                     </vue-recaptcha>
                   </div> 
 
-                  <div class="my-3">
+                 <!--  <div class="my-3">
                     <div class="loading">Loading</div>
                     <div class="error-message"></div>
                     <div class="sent-message">Your message has been sent. Thank you!</div>
-                  </div>
+                  </div> -->
                   <div class="text-center"><button type="submit">Send Message</button></div>
                 </form>
               </div>

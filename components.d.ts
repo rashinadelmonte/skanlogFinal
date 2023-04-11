@@ -14,6 +14,8 @@ declare module '@vue/runtime-core' {
     Career: typeof import('./src/components/Career.vue')['default']
     CareerList: typeof import('./src/components/CareerList.vue')['default']
     Contact: typeof import('./src/components/Contact.vue')['default']
+    ElCarousel: typeof import('element-plus/es')['ElCarousel']
+    ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElDatePicker: typeof import('element-plus/es')['ElDatePicker']
     Elev: typeof import('./src/components/Elev.vue')['default']
     ElPagination: typeof import('element-plus/es')['ElPagination']

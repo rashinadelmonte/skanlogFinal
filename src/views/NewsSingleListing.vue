@@ -49,6 +49,9 @@
         border-radius: 30px;
         margin-top: 5rem;
         margin-block: 1rem;
+        padding: 15px 50px;
+        font-size: 1.2rem;
+        
     }
 
     .news-headline {
@@ -61,10 +64,11 @@
         text-align: center;
         margin-bottom: 5rem;
         font-weight: 600;
+        font-size: 2rem;
     }
 
     .article {
-        font-size: 1rem;
+        font-size: 1.8rem;
         margin-left: -3rem;
         line-height: 1.9;
         font-weight: 500;
@@ -75,19 +79,48 @@
             position: relative;
             left: -4rem;
             top: -3rem;
-            padding: 7px 15px;
-            width: 111%;
+            padding: 10px 10px;
+            font-size: 1rem;
+            width: 115%;
          }
 
          .news-headline h3 {
-            font-size: 2rem;
+            font-size: 1.1rem;
             margin-bottom: 3rem;
             font-weight: 600;
+            column-count: 1;
+            width: 110%;
          }
 
          .article {
             font-size: 1rem;
             width: 191%;
+            margin-left: -3rem;
+            line-height: 1.9;
+            font-weight: 500;
+         }
+    }
+
+    @media (min-width: 425px) and (max-width: 426px) { 
+        .news-headline button {
+            position: relative;
+            left: -4rem;
+            top: -3rem;
+            padding: 10px 15px;
+            font-size: 1rem;
+            
+         }
+
+         .news-headline h3 {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+            column-count: 1;
+         }
+
+         .article {
+            font-size: 1rem;
+            width: 130%;
             margin-left: -3rem;
             line-height: 1.9;
             font-weight: 500;
@@ -100,13 +133,16 @@
             position: relative;
             left: -4rem;
             top: -3rem;
-            padding: 7px 15px;
+            padding: 7px 20px;
+            font-size: 1rem;
          }
 
          .news-headline h3 {
-            font-size: 2rem;
+            font-size: 1.2rem;
             margin-bottom: 3rem;
-            font-weight: 600;
+            font-weight: 800;
+            column-count: 1;
+            text-align: center;
          }
 
          .article {
@@ -114,7 +150,7 @@
             width: 136%;
             margin-left: -3rem;
             line-height: 1.9;
-            font-weight: 500;
+            font-weight: 400;
          }
     }
 
@@ -141,28 +177,6 @@
          }
     }
 
-    @media (min-width: 414px) and (max-width: 415px) { 
-        .news-headline button {
-            position: relative;
-            left: -4rem;
-            top: -3rem;
-            padding: 7px 15px;
-         }
-
-         .news-headline h3 {
-            font-size: 2rem;
-            margin-bottom: 3rem;
-            font-weight: 600;
-         }
-
-         .article {
-            font-size: 1rem;
-            width: 136%;
-            margin-left: -3rem;
-            line-height: 1.9;
-            font-weight: 500;
-         }
-    }
 
     @media (min-width: 390px) and (max-width: 395px) { 
         .news-headline button {
@@ -170,10 +184,11 @@
             left: -4rem;
             top: -3rem;
             padding: 7px 15px;
+            font-size: 1rem;
          }
 
          .news-headline h3 {
-            font-size: 2rem;
+            font-size: 1.5rem;
             margin-bottom: 3rem;
             font-weight: 600;
          }
@@ -193,17 +208,18 @@
             left: -4rem;
             top: -3rem;
             padding: 7px 15px;
+            font-size: 1rem;
          }
 
          .news-headline h3 {
-            font-size: 2rem;
+            font-size: 1.5rem;
             margin-bottom: 3rem;
             font-weight: 600;
          }
 
          .article {
             font-size: 1rem;
-            width: 136%;
+            width: 150%;
             margin-left: -3rem;
             line-height: 1.9;
             font-weight: 500;
@@ -216,10 +232,11 @@
             left: -4rem;
             top: -3rem;
             padding: 7px 15px;
+            font-size: 1rem;
          }
 
          .news-headline h3 {
-            font-size: 2rem;
+            font-size: 1.5rem;
             margin-bottom: 3rem;
             font-weight: 600;
          }
@@ -238,11 +255,12 @@
             position: relative;
             left: -4rem;
             top: -3rem;
-            padding: 7px 15px;
+            padding: 7px 25px;
+            font-size: 1rem;
          }
 
          .news-headline h3 {
-            font-size: 2rem;
+            font-size: 1.9rem;
             margin-bottom: 3rem;
             font-weight: 600;
          }
@@ -262,7 +280,7 @@
             position: relative;
             left: -4rem;
             top: -3rem;
-            padding: 7px 15px;
+            padding: 7px 30px;
          }
 
          .news-headline h3 {
@@ -284,7 +302,8 @@
             position: relative;
             left: -4rem;
             top: -3rem;
-            padding: 7px 15px;
+            padding: 7px 30px;
+            font-size: 1rem;
          }
 
          .news-headline h3 {
@@ -306,7 +325,8 @@
             position: relative;
             left: -4rem;
             top: -3rem;
-            padding: 7px 15px;
+            padding: 7px 30px;
+            font-size: 1rem;
          }
 
          .news-headline h3 {
@@ -322,6 +342,53 @@
             font-weight: 500;
          }
     }
+
+    @media (min-width: 1024px) and (max-width: 1025px) { 
+        .news-headline button {
+            position: relative;
+            left: -4rem;
+            top: -3rem;
+            padding: 7px 30px;
+            font-size: 1rem;
+         }
+
+         .news-headline h3 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+         }
+
+         .article {
+            font-size: 1rem;
+            margin-left: -3rem;
+            line-height: 1.9;
+            font-weight: 500;
+         }
+      }
+
+      @media (min-width: 1280px) and (max-width: 1281px) { 
+        .news-headline button {
+            position: relative;
+            left: -4rem;
+            top: -3rem;
+            padding: 7px 30px;
+            font-size: 1rem;
+         }
+
+         .news-headline h3 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+         }
+
+         .article {
+            font-size: 1rem;
+            margin-left: -3rem;
+            line-height: 1.9;
+            font-weight: 500;
+         }
+    }
+
 
    
 

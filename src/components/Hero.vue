@@ -2,14 +2,16 @@
     import carouse1 from "@/assets/assets/img/hero-carousel/1.jpg"
     import carouse2 from "@/assets/assets/img/hero-carousel/2.jpg"
     import carouse3 from "@/assets/assets/img/hero-carousel/3.jpg"
-    import { watch, ref, onMounted, nextTick } from "vue";
+    import { watch, ref, onMounted, nextTick, computed } from "vue";
     import api from "@/services/apiService";
     import { loadMainJS } from "@/assets/assets/js/main.js";
 
 
     const listOfMedia = ref([]);
-   /*  const carouselIndicators = ref(null); */
     const fileType = ref('');
+    const isMobile = computed(() => {
+      return window.innerWidth < 768;
+    });
 
     onMounted(async () => {
       try {
@@ -22,20 +24,7 @@
         }
     });
 
-   /*  watch(listOfMedia, () => {
-        nextTick(() => {
-          carouselIndicators.value.innerHtml = '';
 
-            for (let i = 0; i < listOfMedia.value.length; i++) {
-              const li = document.createElement('li');
-              li.setAttribute('data-bs-target', '#heroCarousel');
-              li.setAttribute('data-bs-slide-to', i.toString());
-              li.classList.add(i === 0 ? 'active' : '');
-              carouselIndicators.value.appendChild();
-            }
-        });
-    })
-    */
 </script>
 
 <template>
@@ -48,7 +37,15 @@
         data-bs-ride="carousel" 
         :data-bs-interval="fileType.startsWith('png') ? 500 : 16000"> 
 
-      <!-- <ol ref="carouselIndicators" id="hero-carousel-indicators" class="carousel-indicators"></ol> -->
+      <ol id="hero-carousel-indicators" class="carousel-indicators">
+        <li
+          v-for="(media, index) in listOfMedia"
+          :key="media"
+          data-bs-target="#heroCarousel"
+          :data-bs-slide-to="index"
+          :class="{ active: index === 0 }"
+        ></li>
+      </ol>
       
         <div class="carousel-inner" role="listbox">
           <div v-for="(media, index) in listOfMedia" :key="media">
@@ -70,9 +67,9 @@
               </video>
               <div class="carousel-container">
                   <div class="container">
-                    <h2 class="animate__animated animate__fadeInDown">The Best Business Information </h2>
-                    <p class="animate__animated animate__fadeInUp">We're In The Business Of Helping You Start Your Business</p>
-                    <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                    <h2 class="animate__animated animate__fadeInDown" :class="{ 'd-none': isMobile}">The Best Business Information </h2>
+                    <p class="animate__animated animate__fadeInUp" :class="{ 'd-none': isMobile}">We're In The Business Of Helping You Start Your Business</p>
+                    <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp" :class="{ 'd-none': isMobile}">Get Started</a>
                   </div>
                 </div>
             </div>
@@ -131,6 +128,14 @@
   //     width: 390px !important;
   //   }
   // }
+
+  @media (max-width: 767px) {
+    /* Use !important to override inline styles */
+    .d-none {
+      display: none !important;
+    }
+  }
+
   @include media-breakpoint-only(xs) {  
     .videoBG {
       height: 844px !important;
@@ -177,6 +182,8 @@
       width: 540px !important;
     }
   }
+
+
   @include media-breakpoint-only(sm) { 
     .videoBG {
       height: 844px !important;
@@ -221,24 +228,23 @@
       width: 1280px !important;
     }
   }
-  @include media-breakpoint-only(lg) { 
+
+  @media (min-width: 1536px) and (max-width: 1537px) { 
     .videoBG {
+      height: 800px !important;
+      width: 1536px !important;
+    }
+  }
+ 
+/*   @include media-breakpoint-only(lg) { 
+    .videoBG {  
       max-height: 930px !important;
       max-width: 1540px !important;
     }
-  }
-  @include media-breakpoint-only(xl) { 
-    .videoBG {
-      max-height: 930px !important;
-      max-width: 1540px !important;
-    }
-  }
-  @include media-breakpoint-only(xxl) { 
-    .videoBG {
-      max-height: 930px !important;
-      max-width: 1540px !important;
-    }
-  }
+  } */
+
+  
+ 
   // @media (max-width: 1141px) {
   //   .videoBG {
   //     max-height: 930px !important;

@@ -216,10 +216,12 @@
     }
 
     #career-overview{
+        line-height: 1.5;
+        width: 100%;
+        font-size: 1.5rem;
+        font-weight: 400;
+        text-align: left;
         overflow-wrap: break-word;
-        height: 70px;
-        margin-bottom: 134px;
-        line-height: 1.9;
     }
    
     .career-header {
@@ -247,6 +249,8 @@
         text-transform: uppercase;
         transition: all 0.4s ease 0s;
         border-radius: 30px;
+        top: 1.9rem;
+        position: relative;
     }
 
     .career-item button:nth-child(2) {
@@ -255,26 +259,31 @@
         border: none;
     }
 
-    @media (min-width: 320px) and (max-width: 321px) { 
+    @media (min-width: 320px) and (max-width: 321px) {
+    
         .career-item h2 {
             font-size: 1.4rem;
             text-align: center;
             font-weight: 700;
-            line-height: 1;
+            
         }
 
-        .career-item p {
-            font-size: 14px;
+        #career-overview {
+            line-height: 1.5;
+            column-count: 1;
+            /* width: 105%; */
+            font-size: 1.5rem;
             font-weight: 100;
-            width: 100% !important;
             text-align: left;
+            /* word-spacing: -0.1rem; */
+        
         }
         .career-item button {
-            position: relative;
+            margin-top: 5%;
             column-gap: 5rem;
             font-size: 8px;
             padding: 5px 20px;
-            margin-top: 5rem;
+            
         }
 
         input::placeholder {
