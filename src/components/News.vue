@@ -235,7 +235,7 @@
 
   .content-title h3 {
     color: #333;
-    font-size: 1.9rem;
+    font-size: 1.5rem;
     font-weight: 400;
     column-count: 2;
     

@@ -43,15 +43,17 @@
         background: #3EC1D5 none repeat scroll 0 0;
         border: none;
         color: #fff;
-        padding: 10px 35px;
         text-transform: uppercase;
         transition: all 0.4s ease 0s;
         border-radius: 30px;
+        margin-bottom: 1em;
         margin-top: 5rem;
-        margin-block: 1rem;
-        padding: 15px 50px;
+        position: relative;
+        left: -3rem;
+        top: -3rem;
+        padding: 10px 30px;
         font-size: 1.2rem;
-        
+
     }
 
     .news-headline {
@@ -68,9 +70,9 @@
     }
 
     .article {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
         margin-left: -3rem;
-        line-height: 1.9;
+        line-height: 1.7;
         font-weight: 500;
     }
 
@@ -98,6 +100,7 @@
             margin-left: -3rem;
             line-height: 1.9;
             font-weight: 500;
+            overflow-wrap: break-word;
          }
     }
 
@@ -124,6 +127,7 @@
             margin-left: -3rem;
             line-height: 1.9;
             font-weight: 500;
+            overflow-wrap: break-word;
          }
     }
 
@@ -151,29 +155,35 @@
             margin-left: -3rem;
             line-height: 1.9;
             font-weight: 400;
+            overflow-wrap: break-word;
          }
     }
 
     @media (min-width: 320px) and (max-width: 321px) { 
-        .news-headline button {
+       .news-headline button {
             position: relative;
             left: -4rem;
             top: -3rem;
-            padding: 7px 15px;
+            padding: 7px 20px;
+            font-size: 1rem;
          }
 
          .news-headline h3 {
-            font-size: 2rem;
+            font-size: 1.2rem;
             margin-bottom: 3rem;
-            font-weight: 600;
+            font-weight: 800;
+            column-count: 1;
+            width: 120%;
+            text-align: center;
          }
 
          .article {
             font-size: 1rem;
-            width: 136%;
+            width: 190%;
             margin-left: -3rem;
             line-height: 1.9;
-            font-weight: 500;
+            font-weight: 400;
+            overflow-wrap: break-word;
          }
     }
 
@@ -191,6 +201,9 @@
             font-size: 1.5rem;
             margin-bottom: 3rem;
             font-weight: 600;
+            width: 110%;
+            left: -1rem;
+            position: relative;
          }
 
          .article {
@@ -199,6 +212,7 @@
             margin-left: -3rem;
             line-height: 1.9;
             font-weight: 500;
+            overflow-wrap: break-word;
          }
     }
 
@@ -215,6 +229,9 @@
             font-size: 1.5rem;
             margin-bottom: 3rem;
             font-weight: 600;
+            width: 120%;
+            position: relative;
+            left: -2rem;
          }
 
          .article {
@@ -223,6 +240,7 @@
             margin-left: -3rem;
             line-height: 1.9;
             font-weight: 500;
+            overflow-wrap: break-word;
          }
     }
 
@@ -247,6 +265,7 @@
             margin-left: -3rem;
             line-height: 1.9;
             font-weight: 500;
+            overflow-wrap: break-word;
          }
     }
 
@@ -271,6 +290,7 @@
             margin-left: -3rem;
             line-height: 1.9;
             font-weight: 500;
+            overflow-wrap: break-word;
          }
     }
 
@@ -294,6 +314,7 @@
             margin-left: -3rem;
             line-height: 1.9;
             font-weight: 500;
+            overflow-wrap: break-word;
          }
     }
 
@@ -317,6 +338,7 @@
             margin-left: -3rem;
             line-height: 1.9;
             font-weight: 500;
+            overflow-wrap: break-word;
          }
     }
 
@@ -340,6 +362,7 @@
             margin-left: -3rem;
             line-height: 1.9;
             font-weight: 500;
+            overflow-wrap: break-word;
          }
     }
 
@@ -363,6 +386,7 @@
             margin-left: -3rem;
             line-height: 1.9;
             font-weight: 500;
+            overflow-wrap: break-word;
          }
       }
 
@@ -386,6 +410,7 @@
             margin-left: -3rem;
             line-height: 1.9;
             font-weight: 500;
+            overflow-wrap: break-word;
          }
     }
 

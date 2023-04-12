@@ -15,7 +15,7 @@ body {
 }
 
 body {
-  background-color: rgb(249, 249, 250) !important;
+  background-color: rgb(246 246 246) !important;
 }
 
 .floatleft {
@@ -2525,9 +2525,9 @@ span.email-notes {
     margin-top: 30px;
   }
 
-  .contact-form {
-    margin-top: 30px;
-  }
+ /*  .contact-form {
+    margin-bottom: 20rem;
+  } */
 
   .head-team h5 {
     font-size: 22px;

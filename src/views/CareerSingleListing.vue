@@ -80,6 +80,8 @@
     .career-description {
         column-count: 1;
         width: 100%;
+        font-size: 1.1rem;
+        line-height: 1.9rem;
     }
 
     .single-header span {
@@ -151,7 +153,27 @@
             /* text-align: left; */
             width: 157%;
             font-size: 1rem;
+            line-height: 1.8rem;
+            overflow-wrap: break-word;
         }
+
+        .career-description h1 {
+            font-size: 1.5rem !important;
+        }
+
+        .career-description h2 {
+            font-size: 1.5rem !important;
+        }
+
+        .career-description h3 {
+            font-size: 1.5rem !important;
+        }
+
+        .career-description h4 {
+            font-size: 1.5rem !important;
+        }
+
+       
 
         .apply {
             position: relative;
@@ -181,8 +203,25 @@
             font-size: 10px;
         }
 
+        
+        .career-description h1 {
+            font-size: 1.5rem !important;
+        }
+
+        .career-description h2 {
+            font-size: 1.5rem !important;
+        }
+
+        .career-description h3 {
+            font-size: 1.5rem !important;
+        }
+
+        .career-description h4 {
+            font-size: 1.5rem !important;
+        }
+
         .career-title {
-            font-size: 1.5rem;
+            font-size: 2rem;
             margin-left: -2.9rem;
             margin-bottom: 2rem;
             font-weight: 700;
@@ -194,6 +233,7 @@
             /* text-align: left; */
             width: 140%;
             font-size: 1rem;
+            line-height: 1.8rem;
         }
 
         .apply {
@@ -216,6 +256,24 @@
     }  
 
     @media (min-width: 412px) and (max-width: 415px) { 
+
+        
+        .career-description h1 {
+            font-size: 1.5rem !important;
+        }
+
+        .career-description h2 {
+            font-size: 1.5rem !important;
+        }
+
+        .career-description h3 {
+            font-size: 1.5rem !important;
+        }
+
+        .career-description h4 {
+            font-size: 1.5rem !important;
+        }
+
         .single-header .back {
             margin: 1rem -4rem 0rem;
             padding: 9px 13px;
@@ -224,7 +282,7 @@
         }
 
         .career-title {
-            font-size: 1.5rem;
+            font-size: 2rem;
             margin-left: -2.9rem;
             margin-bottom: 2rem;
             font-weight: 700;
@@ -236,6 +294,7 @@
             /* text-align: left; */
             width: 135%;
             font-size: 1rem;
+            line-height: 1.8rem;
         }
 
         .apply {
@@ -267,8 +326,25 @@
             font-size: 10px;
         }
 
+        
+        .career-description h1 {
+            font-size: 1.5rem !important;
+        }
+
+        .career-description h2 {
+            font-size: 1.5rem !important;
+        }
+
+        .career-description h3 {
+            font-size: 1.5rem !important;
+        }
+
+        .career-description h4 {
+            font-size: 1.5rem !important;
+        }
+
         .career-title {
-            font-size: 1.5rem;
+            font-size: 2rem;
             margin-left: -2.9rem;
             margin-bottom: 2rem;
             font-weight: 700;
@@ -280,6 +356,7 @@
             /* text-align: left; */
             width: 145%;
             font-size: 1rem;
+            line-height: 1.8rem;
         }
 
         .apply {
@@ -309,8 +386,25 @@
             font-size: 10px;
         }
 
+        
+        .career-description h1 {
+            font-size: 1.5rem !important;
+        }
+
+        .career-description h2 {
+            font-size: 1.5rem !important;
+        }
+
+        .career-description h3 {
+            font-size: 1.5rem !important;
+        }
+
+        .career-description h4 {
+            font-size: 1.5rem !important;
+        }
+
         .career-title {
-            font-size: 1.5rem;
+            font-size: 2rem;
             margin-left: -2.9rem;
             margin-bottom: 2rem;
             font-weight: 700;
@@ -320,8 +414,9 @@
         .career-description {
             margin-left: -3rem;
             /* text-align: left; */
-            width: 157%;
+            width: 150%;
             font-size: 1rem;
+            line-height: 1.8rem;
         }
 
         .apply {
@@ -353,7 +448,7 @@
         }
 
         .career-title {
-            font-size: 1.5rem;
+            font-size: 2.3rem;
             margin-left: -2.9rem;
             margin-bottom: 2rem;
             font-weight: 700;
@@ -364,8 +459,26 @@
         .career-description {
             margin-left: -3rem;
             /* text-align: left; */
-            width: 129%;
+            width: 125%;
             font-size: 1rem;
+            line-height: 1.8rem;
+        }
+
+        
+        .career-description h1 {
+            font-size: 1.5rem !important;
+        }
+
+        .career-description h2 {
+            font-size: 1.5rem !important;
+        }
+
+        .career-description h3 {
+            font-size: 1.5rem !important;
+        }
+
+        .career-description h4 {
+            font-size: 1.5rem !important;
         }
 
         .apply {
@@ -388,6 +501,8 @@
     }  
 
     @media (min-width: 280px) and (max-width: 281px) { 
+
+        
         .single-header .back {
             margin: 1rem -4rem 0rem;
             padding: 9px 13px;
@@ -396,33 +511,48 @@
         }
 
         .career-title {
-            font-size: 1.5rem;
-            margin-left: -2.9rem;
+            font-size: 2.3rem;
             margin-bottom: 2rem;
             font-weight: 700;
-            width: 170%;
+        
             
         }
 
         .career-description {
             margin-left: -3rem;
-            /* text-align: left; */
-            width: 170%;
+            width: 210%;
             font-size: 1rem;
+            line-height: 1.8rem;
+            overflow-wrap: break-word;
+        }
+
+        
+        .career-description h1 {
+            font-size: 1.5rem !important;
+        }
+
+        .career-description h2 {
+            font-size: 1.5rem !important;
+        }
+
+        .career-description h3 {
+            font-size: 1.5rem !important;
+        }
+
+        .career-description h4 {
+            font-size: 1.5rem !important;
         }
 
         .apply {
             position: relative;
             left: -4rem;
             top: -3rem;
-            padding: 10px 18px !important;
         }
 
        .footer-section h2 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-top: -1rem;
             margin-left: -4.5rem;
-            width: 185%;
             
        }
 
@@ -434,6 +564,7 @@
 
 
     @media (min-width: 820px) and (max-width: 821px) { 
+        
         .single-header .back {
             margin: 1rem -4rem 0rem;
             padding: 9px 13px;
@@ -442,7 +573,7 @@
         }
 
         .career-title {
-            font-size: 1.9rem;
+            font-size: 2.3rem;
             margin-left: -2.9rem;
             margin-bottom: 2rem;
             font-weight: 700;
@@ -452,7 +583,9 @@
         .career-description {
             margin-left: -3rem;
             /* text-align: left; */
-            font-size: 1rem;
+            font-size: 1.3rem;
+            line-height: 1.8rem;
+            width: 110%;
         }
 
         .apply {
@@ -484,7 +617,7 @@
         }
 
         .career-title {
-            font-size: 1.9rem;
+            font-size: 2.3rem;
             margin-left: -2.9rem;
             margin-bottom: 2rem;
             font-weight: 700;
@@ -494,7 +627,9 @@
         .career-description {
             margin-left: -3rem;
             /* text-align: left; */
-            font-size: 1rem;
+            font-size: 1.2rem;
+            line-height: 1.8rem;
+            width: 110%;
         }
 
         .apply {
@@ -526,7 +661,7 @@
         }
 
         .career-title {
-            font-size: 1.9rem;
+            font-size: 2.3rem;
             margin-left: -2.9rem;
             margin-bottom: 2rem;
             font-weight: 700;
@@ -536,7 +671,9 @@
         .career-description {
             margin-left: -3rem;
             /* text-align: left; */
-            font-size: 1rem;
+            font-size: 1.3rem;
+            line-height: 2rem;
+            width: 110%;
         }
 
         .apply {
@@ -577,6 +714,8 @@
         .career-description {
             margin-left: -3rem;
             font-size: 1rem;
+            line-height: 1.8rem;
+            width: 108%;
             
         }
 
@@ -618,7 +757,8 @@
         .career-description {
             margin-left: -3rem;
             /* text-align: left; */
-            font-size: 1rem;
+            font-size: 1.2rem;
+            line-height: 1.8rem;
             width: 112%;
         }
 

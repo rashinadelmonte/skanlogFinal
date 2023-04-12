@@ -108,7 +108,7 @@ export default {
 <template>
     <!-- <ToastContainer /> -->
      <div id="contact" class="contact-area">
-      <div class="contact-inner area-padding">
+      <div class="contact-inner">
         <div class="contact-overly"></div>
         <div class="container ">
           <div class="row">
@@ -118,7 +118,7 @@ export default {
               </div>
             </div>
           </div>
-          <div class="row">
+          <div class="row contact-details">
             <!-- Start contact icon column -->
             <div class="col-md-4">
               <div class="contact-icon text-center">
@@ -165,6 +165,7 @@ export default {
                 style="width: 100%; height: 500px"
                 :center="map.center"
                 :zoom="15"
+                class="google-map"
               >
                 <GMapMarker :options="{ position: map.center }" />
               </GMapMap>
@@ -191,12 +192,13 @@ export default {
                   <div class="form-group mt-3">
                     <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
                   </div> 
-                  <div class="form-group mt-3 captcha">
+                  <div class="mt-3 text-center captcha">
                     <vue-recaptcha
                       sitekey="6LfQAVglAAAAAPiSs63EPHUOhqVaHE4rok0q1gHs"
                       @verify="verifyCallback"
                       @expire="recaptchaExpired"
                       @fail="recaptchaFailed"
+                     
                       >
                     </vue-recaptcha>
                   </div> 
@@ -216,6 +218,45 @@ export default {
       </div>
     </div><!-- End Contact Section -->
 </template>
+
+
+<style>
+  .form { 
+    margin-bottom: 10rem;
+  }
+
+  .contact-details {
+    position: relative;
+    top: -2rem;
+  }
+
+  .captcha {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .google-map {
+    margin-bottom: 1.9rem;
+  }
+
+  @media (min-width: 820px) and (max-width: 821px) {
+    .google-map {
+       width: 110%;
+       position: relative;
+       left: -2.5rem;
+   }
+  }
+
+
+  @media (min-width: 912px) and (max-width: 912px) {
+    .google-map {
+       width: 130%;
+       position: relative;
+       left: -5.5rem;
+   }
+  }
+</style>
 
 
 

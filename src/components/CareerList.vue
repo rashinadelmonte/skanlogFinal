@@ -86,7 +86,7 @@
              </div>     
         </div>
         <div class="container">
-            <div class="row gx-5 gy-3">
+            <div class="row gx-5 gy-3 career-wrapper">
                 <div class="career-item col-lg-6"  data-aos="fade-up" v-for="career in paginatedList" :key="career.careerId"> 
                     <router-link :to="{ name: 'CareerDetails', params: { careerId: career.careerId }}">
                         <h2>{{ career.careerName }}</h2>
@@ -115,7 +115,7 @@
             background
             :page-size="3"
             layout="prev, pager, next"
-            class="mt-4"
+            class="pagination"
             :total="props.listOfCareer.length"
             :current-page="state.currentPage"
             @current-change="onCurrentChange"
@@ -123,14 +123,25 @@
     </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
      @import 'bootstrap/scss/functions';
      @import 'bootstrap/scss/variables';
      @import 'bootstrap/scss/mixins';
 
+    
+    .career-wrapper {
+        position: relative;
+        top: -11rem;
+     
+    }
+
     .form{
         position: relative;
         margin-bottom: -1rem;
+    }
+
+    .career-item h3 {
+        font-size: 5rem;
     }
     
 
@@ -178,7 +189,13 @@
         font-size: 1rem;
     }
 
+   #career-overview span:nth-child(1) {
+        font-size: 1.3rem !important;
+    }
 
+    /* #career-overview span:nth-child(2) {
+        font-size: 1rem !important;
+    } */
      .el-pager li.is-active {
         background-color: #3EC1D5 !important;
         color: white !important;
@@ -193,7 +210,7 @@
      }
 
 
-     .el-pager li:hover {
+    .el-pager li:hover {
         background-color: #3EC1D5 !important;
         color: #fff !important;
         padding: 1rem;
@@ -201,44 +218,50 @@
 
   
     .pagination {
-        margin-top: 1rem;
+        position: relative;
+        top: -8rem;
     }
 
-
     .career-item h2 {
-        font-size: 1.7rem;
+        font-size: 1.9rem;
         font-weight: 700;
+        text-align: center;
     }
    
     #career-footer {
         column-gap: 0.5rem;
         display: flex;
+      
     }
 
-    #career-overview{
+    #career-overview {
         line-height: 1.5;
         width: 100%;
-        font-size: 1.5rem;
+        font-size: 1rem;
         font-weight: 400;
         text-align: left;
         overflow-wrap: break-word;
     }
    
+   
     .career-header {
-        margin-bottom: 11rem;
+        /* margin-bottom: 11rem; */
         padding: 1.5rem;
     }
 
     .career-item {
+        position: relative;
         padding: 2.6rem;
         /* background-color: #ffff; */
        /*  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; */
        background: #ffff;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 3px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Added to align buttons vertically at the bottom */
+    
 
     }
-
-
 
     .career-item button {
         background: #444 none repeat scroll 0 0;
@@ -251,6 +274,7 @@
         border-radius: 30px;
         top: 1.9rem;
         position: relative;
+        
     }
 
     .career-item button:nth-child(2) {
@@ -262,7 +286,7 @@
     @media (min-width: 320px) and (max-width: 321px) {
     
         .career-item h2 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             text-align: center;
             font-weight: 700;
             
@@ -272,11 +296,14 @@
             line-height: 1.5;
             column-count: 1;
             /* width: 105%; */
-            font-size: 1.5rem;
+            font-size: 1rem;
             font-weight: 100;
             text-align: left;
-            /* word-spacing: -0.1rem; */
-        
+        }
+
+        #career-overview span:nth-child(1) {
+            font-size: 1rem !important;
+            font-weight: 400;
         }
         .career-item button {
             margin-top: 5%;
@@ -300,6 +327,11 @@
 
     @media (min-width: 280px) and (max-width: 281px) { 
 
+        #career-overview span:nth-child(1) {
+            font-size: 1rem !important;
+            font-weight: 400;
+        }
+
         .form {
             margin-bottom: -4rem;
         }
@@ -321,12 +353,17 @@
             column-gap: 5rem;
             font-size: 10px;
             padding: 5px 10px;
-            margin-top: 11rem;
+          
         }
     }  
 
 
     @media (min-width: 375px) and (max-width: 376px) { 
+
+        #career-overview span:nth-child(1) {
+            font-size: 1rem !important;
+            font-weight: 400;
+        }
 
         .form {
             margin-bottom: -4rem;
@@ -355,6 +392,11 @@
 
     @media (min-width: 390px) and (max-width: 396px) { 
 
+        #career-overview span:nth-child(1) {
+            font-size: 1rem !important;
+            font-weight: 400;
+        }
+
         .form {
             margin-bottom: -4rem;
         }
@@ -381,6 +423,11 @@
     }  
 
     @media (min-width: 360px) and (max-width: 361px) { 
+
+        #career-overview span:nth-child(1) {
+            font-size: 1rem !important;
+            font-weight: 400;
+        }
 
         .form {
             margin-bottom: -4rem;
@@ -410,6 +457,11 @@
     
 
     @media (min-width: 412px) and (max-width: 416px) { 
+
+        #career-overview span:nth-child(1) {
+            font-size: 1rem !important;
+            font-weight: 400;
+        }
 
         .form {
             margin-bottom: -4rem;
