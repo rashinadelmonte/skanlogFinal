@@ -85,7 +85,7 @@
                 </div>
              </div>     
         </div>
-        <div class="container">
+        <div class="">
             <div class="row gx-5 gy-3 career-wrapper">
                 <div class="career-item col-lg-6"  data-aos="fade-up" v-for="career in paginatedList" :key="career.careerId"> 
                     <router-link :to="{ name: 'CareerDetails', params: { careerId: career.careerId }}">
@@ -101,19 +101,9 @@
                 </div> 
             </div>
         </div>
-      <!--   <el-pagination
-            class="pagination"
-            :current-page="state.currentPage"
-            :page-size="3"
-            :total="props.listOfCareer.length"
-            layout="prev, pager, next"
-            @current-change="onCurrentChange"
-            @prev-click="prevPage"
-            @next-click="nextPage"
-        /> -->
         <el-pagination
             background
-            :page-size="3"
+            :page-size="4"
             layout="prev, pager, next"
             class="pagination"
             :total="props.listOfCareer.length"

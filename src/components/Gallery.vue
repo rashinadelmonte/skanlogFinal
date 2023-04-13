@@ -4,6 +4,7 @@
     import GalleryMain from "@/components/GalleryMain.vue";
     import { loadMainJS } from "@/assets/assets/js/main.js"
 
+    const isLoading = reactive({ status: true});
     const listOfGallery = ref([]);
 
     onMounted(async () => {
@@ -11,6 +12,7 @@
         // Fetch the list of galleries
         const responseGallery = await api.get("/Gallery");
         listOfGallery.value = responseGallery.data;
+        isLoading.status = false;
         console.log(listOfGallery.value);
 
         } catch (error) {
@@ -20,7 +22,8 @@
 </script>
 
 <template>
-     <gallery-main :listOfGallery="listOfGallery"></gallery-main>
+     <div class="loader-line" v-if="isLoading.status"></div>
+     <gallery-main v-else :listOfGallery="listOfGallery"></gallery-main>
 </template>
 
 <style>
@@ -45,6 +48,33 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  .loader-line {
+      width: 100%;
+      height: 6px;
+      position: relative;
+      overflow: hidden;
+      background-color: #ddd;
+      margin: 85px auto;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      border-radius: 40px;
+    }
+
+    .loader-line:before {
+      content: "";
+      position: absolute;
+      left: -50%;
+      height: 6px;
+      width: 40%;
+      background-color: #3ec1d5;
+      -webkit-animation: lineAnim 1s linear infinite;
+      -moz-animation: lineAnim 1s linear infinite;
+      animation: lineAnim 1s linear infinite;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      border-radius: 20px;
   }
 </style>
 

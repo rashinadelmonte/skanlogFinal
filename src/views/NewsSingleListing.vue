@@ -72,7 +72,7 @@
     .article {
         font-size: 1.4rem;
         margin-left: -3rem;
-        line-height: 1.7;
+        line-height: 2rem;
         font-weight: 500;
     }
 
@@ -123,8 +123,6 @@
 
          .article {
             font-size: 1rem;
-            width: 130%;
-            margin-left: -3rem;
             line-height: 1.9;
             font-weight: 500;
             overflow-wrap: break-word;
@@ -151,8 +149,7 @@
 
          .article {
             font-size: 1rem;
-            width: 136%;
-            margin-left: -3rem;
+            width: auto;
             line-height: 1.9;
             font-weight: 400;
             overflow-wrap: break-word;
@@ -173,15 +170,12 @@
             margin-bottom: 3rem;
             font-weight: 800;
             column-count: 1;
-            width: 120%;
             text-align: center;
          }
 
-         .article {
+         .article p{
             font-size: 1rem;
-            width: 190%;
-            margin-left: -3rem;
-            line-height: 1.9;
+            line-height: 1.7rem;
             font-weight: 400;
             overflow-wrap: break-word;
          }
@@ -208,7 +202,6 @@
 
          .article {
             font-size: 1rem;
-            width: 136%;
             margin-left: -3rem;
             line-height: 1.9;
             font-weight: 500;
@@ -236,7 +229,6 @@
 
          .article {
             font-size: 1rem;
-            width: 150%;
             margin-left: -3rem;
             line-height: 1.9;
             font-weight: 500;
@@ -261,8 +253,6 @@
 
          .article {
             font-size: 1rem;
-            width: 136%;
-            margin-left: -3rem;
             line-height: 1.9;
             font-weight: 500;
             overflow-wrap: break-word;
@@ -286,8 +276,6 @@
 
          .article {
             font-size: 1rem;
-            width: 124%;
-            margin-left: -3rem;
             line-height: 1.9;
             font-weight: 500;
             overflow-wrap: break-word;

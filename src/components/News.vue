@@ -95,8 +95,10 @@
                           <router-link :to="{ name: 'News Article', params: { newsAndEventsId: news.newsAndEventsId }}">
                             <div class="line"></div>
                                 <div class="fade-in">
-                                  <span>{{ formatDate(news.date) }}</span>
-                                  <h3>{{ news.title }}</h3> 
+                                  <div class="left-content">
+                                    <span>{{ formatDate(news.date) }}</span>
+                                     <h3>{{ news.title }}</h3> 
+                                  </div>
                                 </div> 
                           </router-link>
                             <div class="right-image">
@@ -135,7 +137,7 @@
     
     } */
 
-    .fade-in {
+  .fade-in {
     animation: fadeIn 1s ease-in-out;
   }
 
@@ -171,12 +173,15 @@
   .content-title span {
     color: #3EC1D5;
     font-size: 1rem;
+    font-weight: 600;
   }  
 
   .not-found p {
     text-align: center;
     font-size: 2.5rem;
     padding: 10rem;
+    display: flex;
+    justify-content: center;
   }
 
   .fade-enter-active,
@@ -196,25 +201,31 @@
     padding: 2rem;
   }
 
-  .news-content {
-    display: flex;
-  }
-
   .right-image {
     display: flex;
     justify-content: flex-end;
+    
   }
 
   .right-image img {
-    margin-top: -7rem;
     max-width: 20%;
     border-radius: 1rem;
+    position: relative;
+    margin-top: -7rem;
   }
 
 
   .news-wrapper h3{
     color: #3EC1D5;
     padding-top: 1rem;
+  }
+  
+  .content-title h3 {
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 400;
+    column-count: 2;
+    
   }
 
   .news-wrapper .line {
@@ -233,13 +244,6 @@
     
   }
 
-  .content-title h3 {
-    color: #333;
-    font-size: 1.5rem;
-    font-weight: 400;
-    column-count: 2;
-    
-  }
 
   .content-title .line {
     color: #333;
@@ -276,18 +280,26 @@
   @media (min-width: 320px) and (max-width: 321px) { 
     .content-title h3 {
       color: #333;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 700;
-      column-count: 2;
+      column-count: 1;
+      width: 50%;
       overflow-wrap: break-word;
       line-height: 1.1;
    }
 
    .right-image img {
-        max-width: 50%;
-        border-radius: 1rem;
-        margin-top: -5rem;
+      max-width: 45%;
+      border-radius: 1rem;
+      margin-top: -6rem;
+       
     }
+
+    .not-found p {
+       
+      
+    }
+    
   } 
 
   @media (min-width: 425px) and (max-width: 426px) { 

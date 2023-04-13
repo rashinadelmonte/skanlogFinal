@@ -35,7 +35,7 @@
         id="heroCarousel" 
         class="carousel slide carousel-fade"
         data-bs-ride="carousel" 
-        :data-bs-interval="fileType.startsWith('png') ? 500 : 16000"> 
+        :data-bs-interval="fileType.startsWith('png') ? 500 : 5000"> 
 
       <ol id="hero-carousel-indicators" class="carousel-indicators">
         <li

@@ -36,4 +36,7 @@ declare module '@vue/runtime-core' {
     Testimonials: typeof import('./src/components/Testimonials.vue')['default']
     Video: typeof import('./src/components/Video.vue')['default']
   }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
+  }
 }

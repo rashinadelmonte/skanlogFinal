@@ -17,10 +17,9 @@
     nextTick(() => {
         loadMainJS();
     })
-
-  
-
+    
     onMounted(async() => {
+        window.scrollTo(0, 0);
         const instance = getCurrentInstance();
         const careerId = instance.proxy.$route.params.careerId;
         

@@ -29,7 +29,7 @@
             images.value = value.map((item:any) => {
                 return {
                     ...item,
-                    imageList: 'https://localhost:7243/Files/'+item.fileName,
+                    imageList: 'https://localhost:7243/'+item.filePath,
                     fileType: item.fileType
                 }
             })

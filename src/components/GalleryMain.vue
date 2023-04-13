@@ -1,11 +1,12 @@
 <script setup lang="ts">
-    import { watch, ref, nextTick} from "vue";
+    import { watch, ref, nextTick, reactive } from "vue";
     import moment from "moment";
     import api from "@/services/apiService";
     import GalleryList from "@/components/GalleryList.vue";
     import { loadMainJS } from "@/assets/assets/js/main.js"
 
     const showGrid = ref(false);
+
     const props = defineProps({
         listOfGallery: {
             type: Object,
@@ -25,7 +26,7 @@
                   const filteredImages = imageResponse.data.filter(image => image.fileType === 'png');
                   const imagePath = filteredImages.length > 0 ? filteredImages[0] : null;
                   const isVideo = imagePath && imagePath.fileType === 'mp4';
-                  const featuredImage = isVideo ? null : (imagePath ? domain+'Files/'+imagePath.fileName : null);
+                  const featuredImage = isVideo ? null : (imagePath ? domain+imagePath.filePath : null);
                     return {
                         ...item,
                         featuredImage: featuredImage,
