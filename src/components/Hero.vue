@@ -2,23 +2,33 @@
     import carouse1 from "@/assets/assets/img/hero-carousel/1.jpg"
     import carouse2 from "@/assets/assets/img/hero-carousel/2.jpg"
     import carouse3 from "@/assets/assets/img/hero-carousel/3.jpg"
-    import { watch, ref, onMounted, nextTick, computed } from "vue";
+    import { watch, ref, onMounted, nextTick, computed, reactive } from "vue";
     import api from "@/services/apiService";
     import { loadMainJS } from "@/assets/assets/js/main.js";
 
 
     const listOfMedia = ref([]);
-    const fileType = ref('');
     const isMobile = computed(() => {
       return window.innerWidth < 768;
     });
 
+    const carouselInterval = reactive({ value: 100});
     onMounted(async () => {
       try {
         // Fetch the list of galleries
         const responseGallery = await api.get("/MediaSliderManager");
+        const videoIndex = responseGallery.data.findIndex(media => media.fileType.startsWith('mp4'));
+      
+        if (videoIndex !== -1) {
+          responseGallery.data.unshift(responseGallery.data.splice(videoIndex, 1)[0]);
+          /* carouselInterval.value = 16000; */
+        } /* else {
+          carouselInterval.value = 100;
+        } */
+
         listOfMedia.value = responseGallery.data;
         console.log(listOfMedia.value);   
+
         } catch (error) {
           console.error(error);
         }
@@ -35,7 +45,7 @@
         id="heroCarousel" 
         class="carousel slide carousel-fade"
         data-bs-ride="carousel" 
-        :data-bs-interval="fileType.startsWith('png') ? 500 : 5000"> 
+        :data-bs-interval="12000"> 
 
       <ol id="hero-carousel-indicators" class="carousel-indicators">
         <li
@@ -61,10 +71,10 @@
                       </div>
                   </div>
             </div>
-            <div class="carousel-item" :class="{'active': index === 0}" v-else>
-              <video autoplay loop muted class="videoBG">
+            <div class="carousel-item" :class="{'active': index === 0}" v-else>  
+                <video autoplay loop muted class="videoBG">
                   <source :src="'https://localhost:7243/MediaSliderManager/' + media.fileName">
-              </video>
+                </video>
               <div class="carousel-container">
                   <div class="container">
                     <h2 class="animate__animated animate__fadeInDown" :class="{ 'd-none': isMobile}">The Best Business Information </h2>
@@ -111,7 +121,7 @@
   </section><!-- End Hero Section -->
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
   @import 'bootstrap/scss/functions';
   @import 'bootstrap/scss/variables';
   @import 'bootstrap/scss/mixins';
@@ -129,8 +139,11 @@
   //   }
   // }
 
+  .videoBG {
+      object-fit: cover;
+  }
+
   @media (max-width: 767px) {
-    /* Use !important to override inline styles */
     .d-none {
       display: none !important;
     }
@@ -147,6 +160,13 @@
     .videoBG {
       height: 653px !important;
       width: 280px !important;
+    }
+  }
+
+  @media (min-width: 320px) and (max-width: 321px) { 
+    .videoBG {
+      height: 817px !important;
+      width: 320px !important;
     }
   }
   @media (min-width: 360px) and (max-width: 361px) { 
@@ -228,10 +248,18 @@
       width: 1280px !important;
     }
   }
+  
+  @media (min-width: 1920px) and (max-width: 1921px) {
+    .videoBG {
+      height: 961px;
+      width: 1920px;
+      
+    }
+  }
 
   @media (min-width: 1536px) and (max-width: 1537px) { 
     .videoBG {
-      height: 800px !important;
+      height: 900px !important;
       width: 1536px !important;
     }
   }

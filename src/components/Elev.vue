@@ -146,7 +146,7 @@
       margin: 1rem 0;
       padding: 0 1.5rem;
       font-size: 1.3rem;
-      line-height: 1.5;
+      line-height: 3rem;
     }
 
     .elev .container{

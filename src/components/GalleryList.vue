@@ -63,10 +63,10 @@
                 <div v-if="image.fileType.startsWith('png')">
                   <a href="#"><img :src="image.imageList" alt="" /></a>
                 </div>
-                <div v-if="image.fileType.startsWith('mp4')">
+                <div v-else-if="image.fileType.startsWith('mp4')">
                   <a href="#">
                     <video class="video">
-                      <source :src="image.imageList" type="video/mp4">
+                      <source :src="image.imageList" type="video/mp4" class="gallery-video">
                     </video>
                   </a>
                 </div>
@@ -89,8 +89,6 @@
 
 
 <style>
-  
-
   .back-button {
     border: none;
     background: #3ec1d5;
@@ -109,7 +107,8 @@
   }
 
   .video {
-    height: 100% !important;
-    max-width: 100% !important;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
   }
 </style>

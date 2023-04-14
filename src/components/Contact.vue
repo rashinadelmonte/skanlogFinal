@@ -185,7 +185,7 @@ export default {
               <GMapMap
                 style="width: 100%; height: 500px"
                 :center="map.center"
-                :zoom="15"
+                :zoom="17"
                 class="google-map"
               >
                 <GMapMarker :options="{ position: map.center }" />

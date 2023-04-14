@@ -18,8 +18,7 @@
         loadMainJS();
     })
     
-    onMounted(async() => {
-        window.scrollTo(0, 0);
+    onMounted(async() => {  
         const instance = getCurrentInstance();
         const careerId = instance.proxy.$route.params.careerId;
         
@@ -37,6 +36,8 @@
 
             if(query.scrollToFooter == "applyNow" && applyNowElement) {
                 applyNowElement.scrollIntoView({ behavior: "smooth"});
+            } else {
+                window.scrollTo(0, 0);
             }
 
         } catch(error) {

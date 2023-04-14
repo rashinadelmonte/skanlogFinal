@@ -229,7 +229,7 @@
   }
 
   .news-wrapper .line {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
     margin-top: 1.5rem;
   }
 
