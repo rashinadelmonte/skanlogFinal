@@ -27,14 +27,21 @@
 </template>
 
 <style> 
-  .about-wrapper {
-    background: #fff;
-    margin-top: 5rem;
-    padding: 3rem;
-    width: 70%;
-    margin-left: auto; /* Center the element horizontally */
-    margin-right: auto; /* Center the element horizontally */
-  }
+ .about-wrapper {
+  background: linear-gradient(to bottom right, #e8ebef, #eef0f2, #ffffff, #cbc8c8)!important;
+  border-radius: 1rem;
+  margin-top: 5rem;
+  padding: 3rem;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
   .content p:nth-child(1) span{
     position: relative;
